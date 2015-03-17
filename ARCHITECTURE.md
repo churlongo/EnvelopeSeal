@@ -1,0 +1,18 @@
+# Architecture
+
+EnvelopeSeal is an offline auditor for an envelope encryption key hierarchy. It
+reads a text manifest that declares keys and the wrap edges between them, builds
+a directed graph from those edges, and answers questions that only make sense at
+the graph level. It prints plain text and exits with a status code. It holds no
+key material, opens no sockets, and never reads the wall clock.
+
+This document describes the modules that exist under `src/envelopeseal/`, how
+data flows between them, and why the boundaries fall where they do.
+
+## The shape of the design
+
+The tool is a pipeline with a single direction of flow:
+
+```
+manifest file
+  -> manifest.parse_file      (text  -> Manifest)
