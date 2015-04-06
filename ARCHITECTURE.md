@@ -16,3 +16,10 @@ The tool is a pipeline with a single direction of flow:
 ```
 manifest file
   -> manifest.parse_file      (text  -> Manifest)
+  -> graph.build_graph        (Manifest -> WrapGraph)
+  -> strength / rotation / blast   (pure analysis over Manifest + WrapGraph)
+  -> report.collect_findings / render_*   (analysis -> text)
+  -> cli.main                 (arguments, exit codes, stdout/stderr)
+```
+
+Each stage depends only on the stages above it. `manifest` depends on nothing in
