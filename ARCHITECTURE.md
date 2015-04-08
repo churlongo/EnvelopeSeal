@@ -37,3 +37,11 @@ ids, roles, algorithm tokens, declared bit sizes, creation dates, and rotation
 intervals. It carries no key bytes, no secrets, and no credentials. `manifest`
 opens the file, reads it, and closes it. Nothing else in the package performs
 IO except `cli`, which writes text to stdout and errors to stderr. There is no
+network access, no key management service client, and no environment or clock
+read anywhere in the analysis path. The as-of date used by rotation is always
+passed in explicitly on the command line, never sampled from the system clock,
+so a run is a pure function of its two inputs: the manifest text and the as-of
+date.
+
+## Modules
+
