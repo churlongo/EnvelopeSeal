@@ -45,3 +45,10 @@ date.
 
 ## Modules
 
+### `manifest.py` — parse the line-oriented key manifest
+
+Owns the input format and nothing else. It defines the immutable `Key` and
+`Wrap` records and the `Manifest` container that holds keys keyed by id plus
+wrap edges in file order. `parse_text` walks the text line by line; blank lines
+and `#` comment lines are skipped, and every other line must be a `key` record
+of seven fields or a `wrap` record of three. Parsing is strict: a wrong field
