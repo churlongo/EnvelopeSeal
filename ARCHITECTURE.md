@@ -30,3 +30,10 @@ are no cycles in the module dependency graph, which mirrors the property the
 tool checks for in its input.
 
 ## What the tool touches, and what it does not
+
+The tool reads exactly one thing: a manifest file, as UTF-8 text, passed as a
+positional argument. It never touches key material. The manifest declares key
+ids, roles, algorithm tokens, declared bit sizes, creation dates, and rotation
+intervals. It carries no key bytes, no secrets, and no credentials. `manifest`
+opens the file, reads it, and closes it. Nothing else in the package performs
+IO except `cli`, which writes text to stdout and errors to stderr. There is no
