@@ -52,3 +52,10 @@ Owns the input format and nothing else. It defines the immutable `Key` and
 wrap edges in file order. `parse_text` walks the text line by line; blank lines
 and `#` comment lines are skipped, and every other line must be a `key` record
 of seven fields or a `wrap` record of three. Parsing is strict: a wrong field
+count, an unknown role, a duplicate id, a non-integer size, a negative number,
+or a malformed date raises `ManifestError` naming the line number. `parse_file`
+is the only place the tool opens the manifest. Keeping the parser standalone,
+with no dependency on the graph or analysis code, is what lets every other
+module treat a `Manifest` as trusted, well-formed data.
+
+### `graph.py` — the wrap graph and its three operations
