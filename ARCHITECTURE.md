@@ -59,3 +59,10 @@ with no dependency on the graph or analysis code, is what lets every other
 module treat a `Manifest` as trusted, well-formed data.
 
 ### `graph.py` — the wrap graph and its three operations
+
+The centre of the design. A `WrapGraph` is a directed graph whose nodes are key
+ids and whose edges point from a wrapping key down to the key it wraps, so
+following edges moves from key encrypting keys toward data keys. It stores
+adjacency in both directions (`out_edges` and `in_edges`) so that both
+"what does this key wrap" and "what wraps this key" are cheap. `build_graph`
+constructs it from a `Manifest` and raises `GraphError` if any wrap edge names a
