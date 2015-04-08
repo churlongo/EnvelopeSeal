@@ -23,3 +23,10 @@ manifest file
 ```
 
 Each stage depends only on the stages above it. `manifest` depends on nothing in
+the package. `graph`, `strength`, and `rotation` depend on `manifest` only.
+`blast` depends on `graph` and `manifest`. `report` depends on all of the
+analysis modules. `cli` sits at the top and depends on everything below. There
+are no cycles in the module dependency graph, which mirrors the property the
+tool checks for in its input.
+
+## What the tool touches, and what it does not
