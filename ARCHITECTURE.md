@@ -66,3 +66,10 @@ following edges moves from key encrypting keys toward data keys. It stores
 adjacency in both directions (`out_edges` and `in_edges`) so that both
 "what does this key wrap" and "what wraps this key" are cheap. `build_graph`
 constructs it from a `Manifest` and raises `GraphError` if any wrap edge names a
+key id that was never declared. Every traversal sorts neighbours by id before
+recursing, so the output is deterministic regardless of the order wrap records
+appeared in the file. The three graph operations are described in their own
+section below because they are the heart of the tool.
+
+### `strength.py` — algorithm and size ordering, inversion test
+
