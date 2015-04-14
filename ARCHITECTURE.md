@@ -73,3 +73,11 @@ section below because they are the heart of the tool.
 
 ### `strength.py` — algorithm and size ordering, inversion test
 
+Owns the single question "is this key weaker than that one". It maps each key to
+one comparable integer, the security level in bits of work. Symmetric algorithms
+use their key size directly; modulus based algorithms map their modulus size to
+a comparable symmetric level using the NIST SP 800-57 Part 1 Rev 5 Table 2
+values. It refuses to guess: an unknown algorithm or an unmapped modulus size
+raises `StrengthError` rather than scoring the key as zero, because a silent
+wrong number would hide a real inversion. `is_inversion(wrapping, wrapped)` is
+true when the wrapping key's level is strictly below the wrapped key's level.
