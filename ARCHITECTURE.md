@@ -81,3 +81,10 @@ values. It refuses to guess: an unknown algorithm or an unmapped modulus size
 raises `StrengthError` rather than scoring the key as zero, because a silent
 wrong number would hide a real inversion. `is_inversion(wrapping, wrapped)` is
 true when the wrapping key's level is strictly below the wrapped key's level.
+
+### `rotation.py` — interval and overdue against an as-of date
+
+Owns the rotation calculation. A key with rotation interval 0 is exempt and
+never overdue. Otherwise the due date is created plus the interval, and the key
+is overdue when the as-of date is strictly after the due date. The as-of date is
+always a parameter, never the wall clock, so two runs of the same manifest
