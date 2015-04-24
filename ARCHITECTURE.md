@@ -88,3 +88,10 @@ Owns the rotation calculation. A key with rotation interval 0 is exempt and
 never overdue. Otherwise the due date is created plus the interval, and the key
 is overdue when the as-of date is strictly after the due date. The as-of date is
 always a parameter, never the wall clock, so two runs of the same manifest
+against the same date are byte identical.
+
+### `blast.py` — reachable data key counts per key encrypting key
+
+Owns the blast radius calculation, which is the number that changes behaviour:
+how many data keys fall if a single key encrypting key is compromised. It uses
+the graph's reachability operation. Its output is described in the blast radius
