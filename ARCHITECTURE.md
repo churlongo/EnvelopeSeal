@@ -95,3 +95,10 @@ against the same date are byte identical.
 Owns the blast radius calculation, which is the number that changes behaviour:
 how many data keys fall if a single key encrypting key is compromised. It uses
 the graph's reachability operation. Its output is described in the blast radius
+section below.
+
+### `report.py` — collect findings and render every report
+
+The presentation layer. It defines the `Finding` record with a stable code
+(`missing-wrap`, `inversion`, `cycle`, `orphan`, `overdue`) so output diffs
+cleanly and callers can grep. `collect_findings` runs every check and sorts the
