@@ -102,3 +102,10 @@ section below.
 The presentation layer. It defines the `Finding` record with a stable code
 (`missing-wrap`, `inversion`, `cycle`, `orphan`, `overdue`) so output diffs
 cleanly and callers can grep. `collect_findings` runs every check and sorts the
+results by `(code, subject)` so order never depends on manifest line order. The
+three `render_*` functions turn analysis into the exact text the CLI prints. All
+formatting lives here so the analysis modules stay free of presentation.
+
+### `cli.py` — arguments, exit codes, and IO
+
+The top of the pipeline. It defines the `validate`, `blast`, `rotation`, and
