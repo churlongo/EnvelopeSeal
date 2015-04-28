@@ -116,3 +116,11 @@ once so an unscorable key fails early rather than silently skipping a later
 check. `__main__.py` is a thin module entry point so `python -m envelopeseal`
 works.
 
+## The three graph operations
+
+The wrap graph is the centre of this design. Three operations run over it, and
+each answers a distinct structural question. All three live in `graph.py`.
+
+### 1. Cycle detection
+
+`find_cycles` answers: does any key transitively wrap itself? A wrap cycle means
