@@ -109,3 +109,10 @@ formatting lives here so the analysis modules stay free of presentation.
 ### `cli.py` — arguments, exit codes, and IO
 
 The top of the pipeline. It defines the `validate`, `blast`, `rotation`, and
+`version` subcommands with argparse, maps domain errors to exit code 2, and
+chooses the exit code for each command: 0 clean, 1 findings present, 2 usage or
+input error. `_load` parses the manifest, builds the graph, and scores every key
+once so an unscorable key fails early rather than silently skipping a later
+check. `__main__.py` is a thin module entry point so `python -m envelopeseal`
+works.
+
