@@ -124,3 +124,10 @@ each answers a distinct structural question. All three live in `graph.py`.
 ### 1. Cycle detection
 
 `find_cycles` answers: does any key transitively wrap itself? A wrap cycle means
+no key in the loop has a real root, so the hierarchy has no bottom to trust. The
+implementation is a depth first search carrying an explicit recursion stack. On
+each step it follows the sorted out-edges; if the next node is already on the
+current stack, the slice of the stack from that node to the top is a simple
+cycle. Each cycle is normalised to start at its lexicographically smallest
+member and the set of cycles is sorted, so the same input always yields the same
+cycles in the same order. In the broken sample, `loop-a` wraps `loop-b` and
