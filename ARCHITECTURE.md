@@ -131,3 +131,10 @@ current stack, the slice of the stack from that node to the top is a simple
 cycle. Each cycle is normalised to start at its lexicographically smallest
 member and the set of cycles is sorted, so the same input always yields the same
 cycles in the same order. In the broken sample, `loop-a` wraps `loop-b` and
+`loop-b` wraps `loop-a`, and the operation reports the single cycle
+`["loop-a", "loop-b"]`.
+
+### 2. Reachability under a possible cycle
+
+`reachable_data_keys(graph, start, data_keys)` answers: starting from one key
+and following wrap edges downward, which data keys can be reached? This is the
