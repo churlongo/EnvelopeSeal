@@ -138,3 +138,10 @@ cycles in the same order. In the broken sample, `loop-a` wraps `loop-b` and
 
 `reachable_data_keys(graph, start, data_keys)` answers: starting from one key
 and following wrap edges downward, which data keys can be reached? This is the
+transitive "what does compromising this key expose" question. The critical
+property is that it is cycle safe: it carries a visited set and never revisits a
+node, so it terminates and returns a finite answer even when the graph contains
+a cycle. This matters because the graph is not known to be acyclic at the time
+reachability runs; the broken input the tool exists to diagnose is exactly the
+input that contains a cycle. Assuming acyclicity here would crash on the input
+that most needs analysis. The start key counts toward the result only if it is
