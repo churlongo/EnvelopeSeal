@@ -145,3 +145,10 @@ a cycle. This matters because the graph is not known to be acyclic at the time
 reachability runs; the broken input the tool exists to diagnose is exactly the
 input that contains a cycle. Assuming acyclicity here would crash on the input
 that most needs analysis. The start key counts toward the result only if it is
+itself a data key, matching the idea that compromising a key exposes what it
+protects.
+
+### 3. Blast radius calculation
+
+The blast radius calculation, in `blast.py`, builds on reachability. For every
+key encrypting key it computes the set of data keys reachable from it, and the
