@@ -17,3 +17,8 @@ Keep a Changelog, and the project uses semantic versioning.
   topologically instead of reported as broken.
 
 ## [1.0.0] - 2025-11-11
+
+### Added
+
+- Stable CLI contract for audit, graph, rotation, and version, exit codes 0/1/2.
+- Tests pin the hierarchy edges: cycles, missing KEKs, and depth.
