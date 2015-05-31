@@ -152,3 +152,11 @@ protects.
 
 The blast radius calculation, in `blast.py`, builds on reachability. For every
 key encrypting key it computes the set of data keys reachable from it, and the
+blast radius is the size of that set: the number of data keys that fall if that
+one key is compromised. The results are sorted by descending count, then by key
+id for a stable tie order, so the widest blast radius is always the first line.
+Data keys are not reported here because a data key's blast radius is itself,
+which does not help prioritise which key encrypting keys to protect hardest. In
+the healthy sample, `root-hsm` reaches all four data keys (blast 4) while each
+mid key reaches only its own two (blast 2), which is why the root is the first
+key that should move into hardware.
