@@ -11,3 +11,9 @@ Keep a Changelog, and the project uses semantic versioning.
 
 ## [1.0.1] - 2026-07-01
 
+### Fixed
+
+- A manifest with a wrapped key listed before its KEK is now ordered
+  topologically instead of reported as broken.
+
+## [1.0.0] - 2025-11-11
