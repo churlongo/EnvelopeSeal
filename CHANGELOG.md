@@ -32,3 +32,8 @@ Keep a Changelog, and the project uses semantic versioning.
 ## [0.9.0] - 2023-06-13
 
 ### Added
+
+- Rotation planner checks: blast radius per KEK and safe order.
+- Architecture note for the hierarchy model.
+
+## [0.8.0] - 2022-12-06
