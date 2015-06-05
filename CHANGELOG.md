@@ -22,3 +22,8 @@ Keep a Changelog, and the project uses semantic versioning.
 
 - Stable CLI contract for audit, graph, rotation, and version, exit codes 0/1/2.
 - Tests pin the hierarchy edges: cycles, missing KEKs, and depth.
+
+## [0.9.5] - 2024-04-23
+
+### Changed
+
