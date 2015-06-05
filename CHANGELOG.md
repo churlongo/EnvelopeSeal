@@ -27,3 +27,8 @@ Keep a Changelog, and the project uses semantic versioning.
 
 ### Changed
 
+- Maintenance release: documentation pass and sample refresh.
+
+## [0.9.0] - 2023-06-13
+
+### Added
