@@ -37,3 +37,8 @@ Keep a Changelog, and the project uses semantic versioning.
 - Architecture note for the hierarchy model.
 
 ## [0.8.0] - 2022-12-06
+
+### Added
+
+- JSON output for the audit and rotation commands.
+- Strength view per key in the hierarchy.
