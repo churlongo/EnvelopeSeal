@@ -42,3 +42,9 @@ Keep a Changelog, and the project uses semantic versioning.
 
 - JSON output for the audit and rotation commands.
 - Strength view per key in the hierarchy.
+
+## [0.7.0] - 2021-05-04
+
+### Added
+
+- Bundled manifest samples: healthy and broken.
