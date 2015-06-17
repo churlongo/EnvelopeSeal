@@ -53,3 +53,8 @@ Keep a Changelog, and the project uses semantic versioning.
 ## [0.6.0] - 2020-09-15
 
 ### Added
+
+- Test suite covering parsing, the graph, and the CLI.
+
+## [0.5.0] - 2019-07-30
+
