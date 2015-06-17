@@ -63,3 +63,8 @@ Keep a Changelog, and the project uses semantic versioning.
 - Report renderer with stable finding names.
 - CLI entry point with subcommands.
 
+## [0.4.0] - 2018-10-02
+
+### Added
+
+- Rotation checks and strength assessment for the key set.
