@@ -48,3 +48,8 @@ Keep a Changelog, and the project uses semantic versioning.
 ### Added
 
 - Bundled manifest samples: healthy and broken.
+- README walkthrough captured from a real audit run.
+
+## [0.6.0] - 2020-09-15
+
+### Added
