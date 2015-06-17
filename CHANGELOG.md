@@ -68,3 +68,8 @@ Keep a Changelog, and the project uses semantic versioning.
 ### Added
 
 - Rotation checks and strength assessment for the key set.
+
+## [0.3.0] - 2017-04-25
+
+### Added
+
