@@ -58,3 +58,8 @@ Keep a Changelog, and the project uses semantic versioning.
 
 ## [0.5.0] - 2019-07-30
 
+### Added
+
+- Report renderer with stable finding names.
+- CLI entry point with subcommands.
+
