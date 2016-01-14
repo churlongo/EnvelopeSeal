@@ -45,3 +45,15 @@ is in the manifest you hand it and the as-of date you pass on the command line.
 Envelope encryption is easy to draw on a whiteboard and easy to get subtly wrong
 in practice. A data key is wrapped by a key encrypting key, which may itself be
 wrapped by another key encrypting key, up to some root. The diagram looks like a
+tidy tree. The reality drifts. Someone adds a data key and forgets to wrap it.
+Someone rotates a root and points a new key at an old one, closing a loop.
+Someone provisions a 2048 bit RSA key to wrap a 256 bit symmetric key, quietly
+capping the strength of everything below it. Someone leaves a key in the
+manifest that nothing references any more.
+
+None of these are visible from a single key's metadata. They are properties of
+the graph. EnvelopeSeal loads the whole graph and asks the questions that only
+make sense at the graph level, then prints the answers as plain lines you can
+diff between runs.
+
+The blast radius question is the one that changes behaviour. Every key
