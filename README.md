@@ -57,3 +57,16 @@ make sense at the graph level, then prints the answers as plain lines you can
 diff between runs.
 
 The blast radius question is the one that changes behaviour. Every key
+encrypting key has a number: how many data keys are downstream of it. That
+number tells you which key to put in hardware, which to rotate first, and which
+compromise would be a bad afternoon versus a company-ending event.
+
+## The manifest format
+
+The manifest is a line-oriented text file. It has two record kinds and ignores
+blank lines and lines that start with `#`. Fields are separated by whitespace,
+so you can align columns for readability.
+
+A key record declares one key:
+
+```
