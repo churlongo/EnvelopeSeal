@@ -70,3 +70,16 @@ so you can align columns for readability.
 A key record declares one key:
 
 ```
+key <id> <role> <algorithm> <bits> <created> <rotation_days>
+```
+
+| Field           | Meaning                                                        |
+| --------------- | -------------------------------------------------------------- |
+| `id`            | Unique key identifier, any non-whitespace token.               |
+| `role`          | `dek` for a data key or `kek` for a key encrypting key.        |
+| `algorithm`     | Algorithm token, for example `AES-GCM` or `RSA-OAEP`.          |
+| `bits`          | Declared key or modulus size in bits.                          |
+| `created`       | ISO date `YYYY-MM-DD` the key was created.                     |
+| `rotation_days` | Days until rotation is due. `0` means exempt, never overdue.   |
+
+A wrap record declares one directed edge:
