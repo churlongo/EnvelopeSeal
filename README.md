@@ -83,3 +83,16 @@ key <id> <role> <algorithm> <bits> <created> <rotation_days>
 | `rotation_days` | Days until rotation is due. `0` means exempt, never overdue.   |
 
 A wrap record declares one directed edge:
+
+```
+wrap <wrapping_key_id> <wrapped_key_id>
+```
+
+meaning the first key encrypts the second. Parsing is strict. A record with the
+wrong field count, an unknown role, a duplicate id, or a malformed date raises an
+error that names the line number, and the tool exits with code 2.
+
+## Install and run
+
+The package is pure standard library and targets Python 3.11. There are no
+runtime dependencies to install. You can run it straight from the source tree by
