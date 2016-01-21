@@ -109,3 +109,16 @@ pip install .
 envelopeseal version
 ```
 
+The examples below use the `PYTHONPATH=src` form because that is how the output
+in this README was captured.
+
+## The checks
+
+`validate` runs five checks over the manifest. Each produces zero or more
+findings, and each finding carries a stable code so the output greps and diffs
+cleanly.
+
+| Code           | Question it answers                                             |
+| -------------- | --------------------------------------------------------------- |
+| `missing-wrap` | Is every data key wrapped by at least one key encrypting key?   |
+| `inversion`    | Does any wrap protect a stronger key with a weaker one?         |
