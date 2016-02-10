@@ -122,3 +122,16 @@ cleanly.
 | -------------- | --------------------------------------------------------------- |
 | `missing-wrap` | Is every data key wrapped by at least one key encrypting key?   |
 | `inversion`    | Does any wrap protect a stronger key with a weaker one?         |
+| `cycle`        | Is there a wrap loop, so a key transitively wraps itself?       |
+| `orphan`       | Is any key attached to nothing in either direction?             |
+| `overdue`      | Is any key past its created date plus its rotation interval?    |
+
+A note on overlap: a data key with no wrap edge at all is reported both as
+`missing-wrap` and as `orphan`, because it is genuinely both uncovered and
+outside the hierarchy. The tool reports what is true rather than suppressing one
+in favour of the other.
+
+## Command reference
+
+```
+envelopeseal validate  <manifest> --as-of YYYY-MM-DD
