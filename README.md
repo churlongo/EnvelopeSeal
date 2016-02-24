@@ -160,3 +160,16 @@ keys 7
 wraps 6
 as-of 2026-09-02
 findings 0
+ok no findings
+```
+
+The same command against the broken sample reports every finding kind. This
+output is captured verbatim:
+
+```
+$ PYTHONPATH=src python -m envelopeseal validate samples/broken.manifest --as-of 2026-09-02
+envelopeseal validate
+keys 8
+wraps 4
+as-of 2026-09-02
+findings 6
