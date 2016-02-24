@@ -135,3 +135,16 @@ in favour of the other.
 
 ```
 envelopeseal validate  <manifest> --as-of YYYY-MM-DD
+envelopeseal blast     <manifest>
+envelopeseal rotation  <manifest> --as-of YYYY-MM-DD
+envelopeseal version
+```
+
+`validate` and `rotation` require `--as-of` because whether a key is overdue is a
+function of a date, and the tool never reads the wall clock. Passing the date
+explicitly is what makes a run reproducible: the same manifest and the same date
+always produce the same bytes.
+
+## Output format
+
+Every report starts with a header line naming the subcommand, then a few count
