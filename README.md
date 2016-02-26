@@ -212,3 +212,16 @@ most deserves hardware protection is always the first line.
 
 Finally the rotation view for the same manifest and date. This output is
 captured verbatim:
+
+```
+$ PYTHONPATH=src python -m envelopeseal rotation samples/healthy.manifest --as-of 2026-09-02
+envelopeseal rotation
+as-of 2026-09-02
+keys 7
+overdue 0
+dek-events created 2026-07-15 interval 90d due 2026-10-13 ok
+dek-invoices created 2026-07-01 interval 90d due 2026-09-29 ok
+dek-metrics created 2026-07-15 interval 90d due 2026-10-13 ok
+dek-orders created 2026-07-01 interval 90d due 2026-09-29 ok
+mid-payments-kek created 2026-02-01 interval 365d due 2027-02-01 ok
+mid-telemetry-kek created 2026-02-01 interval 365d due 2027-02-01 ok
