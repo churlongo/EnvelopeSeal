@@ -225,3 +225,16 @@ dek-metrics created 2026-07-15 interval 90d due 2026-10-13 ok
 dek-orders created 2026-07-01 interval 90d due 2026-09-29 ok
 mid-payments-kek created 2026-02-01 interval 365d due 2027-02-01 ok
 mid-telemetry-kek created 2026-02-01 interval 365d due 2027-02-01 ok
+root-hsm created 2026-01-01 interval 0d due - exempt
+```
+
+`root-hsm` is `exempt` because its interval is `0`: it is replaced by ceremony,
+not on a schedule. Every other key has a due date computed as created plus
+interval, and all are still open as of the date given.
+
+The version command reports the package version. Captured verbatim:
+
+```
+$ PYTHONPATH=src python -m envelopeseal version
+envelopeseal 0.1.0
+```
