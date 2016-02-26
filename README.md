@@ -199,3 +199,16 @@ Now ask the blast question directly. This output is captured verbatim:
 
 ```
 $ PYTHONPATH=src python -m envelopeseal blast samples/healthy.manifest
+envelopeseal blast
+keks 3
+root-hsm blast 4 reaches dek-events,dek-invoices,dek-metrics,dek-orders
+mid-payments-kek blast 2 reaches dek-invoices,dek-orders
+mid-telemetry-kek blast 2 reaches dek-events,dek-metrics
+```
+
+`root-hsm` reaches all four data keys, so losing it exposes everything. Each mid
+key reaches only its own two. The list is sorted widest first, so the key that
+most deserves hardware protection is always the first line.
+
+Finally the rotation view for the same manifest and date. This output is
+captured verbatim:
