@@ -186,3 +186,16 @@ overdue dek-stale: due 2026-01-31, 214 days overdue as of 2026-09-02
 The healthy sample is a three level hierarchy. The diagram below is drawn from
 that exact manifest, and the blast radius label on each key encrypting key is
 the real number the tool printed.
+
+![Wrap hierarchy for the healthy sample: root-hsm with blast radius 4 wraps mid-payments-kek and mid-telemetry-kek, each with blast radius 2, and those wrap two data keys each](docs/assets/wrap-hierarchy.svg)
+
+Follow `dek-orders` up the tree. It is a data key, so it must be wrapped by
+something: it is, by `mid-payments-kek`. That key encrypting key is in turn
+wrapped by `root-hsm`. So two keys can recover `dek-orders`: the mid key
+directly, and the root transitively. That is why `root-hsm` has a larger blast
+radius than either mid key.
+
+Now ask the blast question directly. This output is captured verbatim:
+
+```
+$ PYTHONPATH=src python -m envelopeseal blast samples/healthy.manifest
