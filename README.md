@@ -238,3 +238,16 @@ The version command reports the package version. Captured verbatim:
 $ PYTHONPATH=src python -m envelopeseal version
 envelopeseal 0.1.0
 ```
+
+## Exit codes
+
+| Code | Meaning                                                              |
+| ---- | ------------------------------------------------------------------- |
+| `0`  | Clean. No findings for `validate`, no overdue keys for `rotation`.  |
+| `1`  | Findings present. `validate` found problems or `rotation` found overdue keys. |
+| `2`  | Usage or input error: bad arguments, missing file, malformed manifest, unscorable key. |
+
+`blast` and `version` always exit `0` on success because they report rather than
+judge. `validate` exits `1` when any finding is present, which is what makes it
+useful as a gate in continuous integration.
+
