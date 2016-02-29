@@ -276,3 +276,16 @@ a comparable symmetric level using NIST SP 800-57 Part 1 Revision 5, Table 2:
 An inversion is any wrap where the wrapping key's level is strictly below the
 wrapped key's level. In the broken sample, `weak-wrapper` is `RSA-OAEP 2048`,
 level 112, and it wraps `dek-strong`, an `AES-GCM 256` key at level 256. The
+wrapped key claims 256 bits of protection, but an attacker only needs to defeat
+112 bits to reach it, so the claim is false and the tool flags it.
+
+The edge case that makes this hard is that strength is not one dimensional
+across algorithm families, and there is no universally agreed table. The tool
+handles the ambiguity by refusing to guess: an unknown algorithm or an unmapped
+modulus size raises an error and exits `2`, rather than scoring it as zero and
+silently hiding a real inversion. If you use an algorithm the table does not
+cover, the tool tells you instead of lying.
+
+## How to read the report
+
+Each finding is a line you can act on.
