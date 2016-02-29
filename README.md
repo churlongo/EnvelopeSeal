@@ -263,3 +263,16 @@ Symmetric algorithms (`AES-GCM`, `AES-KW`, `AES-CBC`, `CHACHA20-POLY1305`) use
 their key size as the level directly, so `AES-GCM 256` is level 256.
 
 Modulus based algorithms (`RSA-OAEP`, `RSA-PSS`, `DH`) map their modulus size to
+a comparable symmetric level using NIST SP 800-57 Part 1 Revision 5, Table 2:
+
+| Modulus bits | Security level |
+| ------------ | -------------- |
+| 1024         | 80             |
+| 2048         | 112            |
+| 3072         | 128            |
+| 7680         | 192            |
+| 15360        | 256            |
+
+An inversion is any wrap where the wrapping key's level is strictly below the
+wrapped key's level. In the broken sample, `weak-wrapper` is `RSA-OAEP 2048`,
+level 112, and it wraps `dek-strong`, an `AES-GCM 256` key at level 256. The
