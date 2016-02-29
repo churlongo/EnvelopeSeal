@@ -289,3 +289,16 @@ cover, the tool tells you instead of lying.
 ## How to read the report
 
 Each finding is a line you can act on.
+
+- `missing-wrap <dek>`: a data key has no key encrypting key. Decide which key
+  encrypting key owns it and add a wrap record, or delete the data key if it is
+  dead.
+- `inversion <a>-><b>`: the wrap protects a stronger key with a weaker one.
+  Either strengthen the wrapping key or accept that the inner key's effective
+  strength is the outer key's, and stop claiming otherwise.
+- `cycle <k> ...`: keys wrap each other in a loop, so none has a real root.
+  Break the loop by pointing one edge at a genuine root instead.
+- `orphan <k>`: the key touches nothing. If it is dead, remove it. If it is
+  live, connect it to the hierarchy.
+- `overdue <k>`: the key is past its rotation date. Rotate it, then update the
+  manifest with the new created date.
