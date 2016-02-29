@@ -251,3 +251,15 @@ envelopeseal 0.1.0
 judge. `validate` exits `1` when any finding is present, which is what makes it
 useful as a gate in continuous integration.
 
+## The strength ordering
+
+The inversion check needs to compare two keys and decide which is stronger. It
+does this with a single comparable integer per key, called the security level,
+in bits of work. The mapping is deliberately coarse and conservative, and it is
+not a claim about any specific attack. It exists only so the tool can say, with
+a consistent rule, that one key is weaker than another.
+
+Symmetric algorithms (`AES-GCM`, `AES-KW`, `AES-CBC`, `CHACHA20-POLY1305`) use
+their key size as the level directly, so `AES-GCM 256` is level 256.
+
+Modulus based algorithms (`RSA-OAEP`, `RSA-PSS`, `DH`) map their modulus size to
