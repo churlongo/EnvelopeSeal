@@ -315,3 +315,16 @@ would have been more familiar but would have pulled in a parser or forced the us
 of the heavier standard library modules, and it would have diffed worse when a
 single field changed. The cost is a hand written parser, which is small and fully
 tested.
+
+**An explicit as-of date, never the wall clock.** Rotation depends on a date. If
+the tool read the current time, two runs of the same manifest on different days
+would disagree, which breaks the deterministic output rule and makes the tool
+useless as a diffable gate. Passing the date in costs one flag and buys
+reproducibility. The alternative, defaulting to today, was rejected because a
+default that changes silently is the opposite of deterministic.
+
+**Refuse to score unknown algorithms.** The strength check could have treated an
+unknown algorithm as some default level. That would let a run succeed while
+hiding a real inversion behind a wrong number. Failing loudly with exit `2` is
+noisier but honest, and the fix (extend the table) is obvious. Silence was the
+rejected alternative.
