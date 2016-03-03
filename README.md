@@ -302,3 +302,16 @@ Each finding is a line you can act on.
   live, connect it to the hierarchy.
 - `overdue <k>`: the key is past its rotation date. Rotate it, then update the
   manifest with the new created date.
+
+The blast report is a priority list, not a finding list. Read it top down: the
+first line is the key whose compromise hurts most, so it is the first key to
+move into hardware or to rotate on the tightest schedule.
+
+## Design decisions
+
+**A text manifest, not JSON or YAML.** A line-oriented format diffs cleanly, has
+no dependency, and needs no schema library. The alternative, a structured format,
+would have been more familiar but would have pulled in a parser or forced the use
+of the heavier standard library modules, and it would have diffed worse when a
+single field changed. The cost is a hand written parser, which is small and fully
+tested.
