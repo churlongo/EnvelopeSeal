@@ -328,3 +328,16 @@ unknown algorithm as some default level. That would let a run succeed while
 hiding a real inversion behind a wrong number. Failing loudly with exit `2` is
 noisier but honest, and the fix (extend the table) is obvious. Silence was the
 rejected alternative.
+
+**Report overlapping findings rather than deduplicating.** A data key with no
+edges is both `missing-wrap` and `orphan`. Collapsing them into one would hide
+information: the two codes trigger different fixes. Reporting both, sorted, keeps
+each code meaning exactly one thing.
+
+**Cycle safe reachability.** Blast radius is computed with a visited set, so it
+returns a finite answer even when the graph has a cycle. The alternative, assuming
+the graph is acyclic, would crash on exactly the broken input the tool exists to
+diagnose.
+
+## Repository layout
+
