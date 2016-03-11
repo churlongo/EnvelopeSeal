@@ -354,3 +354,15 @@ envelopeseal/
     cli.py                      argparse subcommands and exit codes
     manifest.py                 parse the line-oriented key manifest
     graph.py                    build the wrap graph, find cycles, reach data keys
+    strength.py                 algorithm and size ordering, inversion test
+    rotation.py                 interval and overdue against an as-of date
+    blast.py                    reachable data key counts per key encrypting key
+    report.py                   collect findings and render every report
+  tests/
+    test_envelopeseal.py        unittest suite covering every module
+  samples/
+    healthy.manifest            a hierarchy that passes every check
+    broken.manifest             one of every fault the tool detects
+    README.md                   how each fixture was constructed
+  docs/assets/
+    logo.svg                    wordmark, envelope mark with a single seal
