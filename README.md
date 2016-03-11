@@ -341,3 +341,16 @@ diagnose.
 
 ## Repository layout
 
+```
+envelopeseal/
+  README.md                     this file
+  LICENSE                       MIT, the envelopeseal authors, 2026
+  CHANGELOG.md                  release notes
+  .gitignore                    ignores build and cache artefacts
+  pyproject.toml                setuptools, src layout, console script
+  src/envelopeseal/
+    __init__.py                 package version
+    __main__.py                 module entry point
+    cli.py                      argparse subcommands and exit codes
+    manifest.py                 parse the line-oriented key manifest
+    graph.py                    build the wrap graph, find cycles, reach data keys
