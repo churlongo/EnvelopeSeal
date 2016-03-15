@@ -366,3 +366,16 @@ envelopeseal/
     README.md                   how each fixture was constructed
   docs/assets/
     logo.svg                    wordmark, envelope mark with a single seal
+    wrap-hierarchy.svg          the real healthy graph with real blast counts
+```
+
+## Glossary
+
+- **data key (dek)**: a key that encrypts application data directly.
+- **key encrypting key (kek)**: a key whose job is to wrap other keys.
+- **wrap**: to encrypt one key under another; the edge of the hierarchy.
+- **blast radius**: the count of data keys reachable from a key encrypting key,
+  which is the number compromised if that one key is.
+- **inversion**: a wrap where the wrapping key is weaker than the wrapped key.
+- **orphan**: a key with no wrap edge in either direction.
+- **overdue**: a key whose created date plus rotation interval is before the
