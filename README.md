@@ -379,3 +379,16 @@ envelopeseal/
 - **inversion**: a wrap where the wrapping key is weaker than the wrapped key.
 - **orphan**: a key with no wrap edge in either direction.
 - **overdue**: a key whose created date plus rotation interval is before the
+  as-of date.
+- **security level**: the comparable integer strength the tool assigns a key.
+- **as-of date**: the date rotation is evaluated against, passed explicitly.
+- **exempt**: a key with rotation interval `0`, never considered overdue.
+
+## Integration notes
+
+Use `validate` as a gate. In continuous integration, run it against your checked
+in manifest with a fixed as-of date, or with the pipeline's date if you want
+rotation to fail the build as keys age:
+
+```
+PYTHONPATH=src python -m envelopeseal validate manifest.txt --as-of 2026-09-02
