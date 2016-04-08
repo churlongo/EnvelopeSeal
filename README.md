@@ -405,3 +405,16 @@ envelopeseal validate old.txt --as-of 2026-09-02 > old.out
 envelopeseal validate new.txt --as-of 2026-09-02 > new.out
 diff old.out new.out
 ```
+
+A clean diff means the audit result did not change. A new `inversion` or `cycle`
+line in the diff is a regression introduced by the commit.
+
+## Verification
+
+The test suite is stdlib `unittest`, run with:
+
+```
+PYTHONPATH=src python -m unittest discover -s tests -v
+```
+
+It runs 28 tests. They cover manifest parsing including every rejection path,
