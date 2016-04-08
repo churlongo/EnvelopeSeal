@@ -392,3 +392,16 @@ rotation to fail the build as keys age:
 
 ```
 PYTHONPATH=src python -m envelopeseal validate manifest.txt --as-of 2026-09-02
+```
+
+A non-zero exit fails the job. Exit `1` means the manifest has findings, exit `2`
+means the manifest or invocation is broken.
+
+Because output is line-oriented and deterministic, you can diff two runs to see
+what changed between commits:
+
+```
+envelopeseal validate old.txt --as-of 2026-09-02 > old.out
+envelopeseal validate new.txt --as-of 2026-09-02 > new.out
+diff old.out new.out
+```
