@@ -5,3 +5,5 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "envelopeseal"
 version = "1.0.1"
+description = "Offline auditor for an envelope encryption key hierarchy."
+readme = "README.md"
