@@ -13,3 +13,5 @@ authors = [{ name = "EnvelopeSeal contributors" }]
 keywords = ["envelope-encryption", "kek", "dek", "key-wrapping", "audit"]
 
 [project.scripts]
+envelopeseal = "envelopeseal.cli:main"
+
