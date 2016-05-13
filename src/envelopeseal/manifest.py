@@ -13,3 +13,11 @@ created is an ISO date (YYYY-MM-DD), and rotation_days is an integer number of
 days after which the key is overdue (0 means the key never expires).
 
 A wrap record:
+
+    wrap <wrapping_key_id> <wrapped_key_id>
+
+meaning wrapping_key_id encrypts (wraps) wrapped_key_id. A key encrypting key
+may wrap other key encrypting keys or data keys.
+
+Blank lines and lines beginning with "#" are ignored. Fields are separated by
+runs of whitespace. Parsing is strict: a malformed line raises ManifestError
