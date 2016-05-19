@@ -29,3 +29,10 @@ from __future__ import annotations
 import datetime
 from dataclasses import dataclass, field
 from typing import List
+
+
+ROLE_DEK = "dek"
+ROLE_KEK = "kek"
+_ROLES = (ROLE_DEK, ROLE_KEK)
+
+
