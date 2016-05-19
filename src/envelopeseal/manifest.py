@@ -36,3 +36,11 @@ ROLE_KEK = "kek"
 _ROLES = (ROLE_DEK, ROLE_KEK)
 
 
+class ManifestError(ValueError):
+    """Raised when the manifest text cannot be parsed."""
+
+
+@dataclass(frozen=True)
+class Key:
+    """A single key declared in the manifest."""
+
