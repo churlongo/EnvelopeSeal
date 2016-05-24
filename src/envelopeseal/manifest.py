@@ -44,3 +44,10 @@ class ManifestError(ValueError):
 class Key:
     """A single key declared in the manifest."""
 
+    key_id: str
+    role: str
+    algorithm: str
+    bits: int
+    created: datetime.date
+    rotation_days: int
+
