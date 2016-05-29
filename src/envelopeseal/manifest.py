@@ -51,3 +51,11 @@ class Key:
     created: datetime.date
     rotation_days: int
 
+    @property
+    def is_data_key(self) -> bool:
+        return self.role == ROLE_DEK
+
+    @property
+    def is_kek(self) -> bool:
+        return self.role == ROLE_KEK
+
