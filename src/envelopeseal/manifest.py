@@ -59,3 +59,11 @@ class Key:
     def is_kek(self) -> bool:
         return self.role == ROLE_KEK
 
+
+@dataclass(frozen=True)
+class Wrap:
+    """A directed wrap edge: wrapping_key protects wrapped_key."""
+
+    wrapping_key: str
+    wrapped_key: str
+
