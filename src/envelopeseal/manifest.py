@@ -67,3 +67,10 @@ class Wrap:
     wrapping_key: str
     wrapped_key: str
 
+
+@dataclass
+class Manifest:
+    """A parsed manifest: keys keyed by id, plus wrap edges in file order."""
+
+    keys: "dict[str, Key]" = field(default_factory=dict)
+    wraps: List[Wrap] = field(default_factory=list)
