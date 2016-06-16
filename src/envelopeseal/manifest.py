@@ -90,3 +90,10 @@ def _parse_date(token: str, lineno: int) -> datetime.date:
 
 def _parse_int(token: str, lineno: int, what: str) -> int:
     try:
+        value = int(token)
+    except ValueError as exc:
+        raise ManifestError(
+            f"line {lineno}: invalid {what} {token!r}, expected an integer"
+        ) from exc
+    if value < 0:
+        raise ManifestError(f"line {lineno}: {what} may not be negative")
