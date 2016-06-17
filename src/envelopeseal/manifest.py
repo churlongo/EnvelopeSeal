@@ -120,3 +120,11 @@ def parse_text(text: str) -> Manifest:
             _, key_id, role, algorithm, bits_s, created_s, rot_s = parts
             if role not in _ROLES:
                 raise ManifestError(
+                    f"line {raw_lineno}: unknown role {role!r}, "
+                    f"expected one of {', '.join(_ROLES)}"
+                )
+            if key_id in manifest.keys:
+                raise ManifestError(
+                    f"line {raw_lineno}: duplicate key id {key_id!r}"
+                )
+            key = Key(
