@@ -105,3 +105,10 @@ def parse_text(text: str) -> Manifest:
 
     manifest = Manifest()
     for raw_lineno, raw in enumerate(text.splitlines(), start=1):
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split()
+        kind = parts[0]
+        if kind == "key":
+            if len(parts) != 7:
