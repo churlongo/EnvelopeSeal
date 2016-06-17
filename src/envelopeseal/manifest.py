@@ -97,3 +97,11 @@ def _parse_int(token: str, lineno: int, what: str) -> int:
         ) from exc
     if value < 0:
         raise ManifestError(f"line {lineno}: {what} may not be negative")
+    return value
+
+
+def parse_text(text: str) -> Manifest:
+    """Parse manifest text into a Manifest, raising ManifestError on any fault."""
+
+    manifest = Manifest()
+    for raw_lineno, raw in enumerate(text.splitlines(), start=1):
