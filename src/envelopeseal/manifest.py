@@ -128,3 +128,10 @@ def parse_text(text: str) -> Manifest:
                     f"line {raw_lineno}: duplicate key id {key_id!r}"
                 )
             key = Key(
+                key_id=key_id,
+                role=role,
+                algorithm=algorithm,
+                bits=_parse_int(bits_s, raw_lineno, "bits"),
+                created=_parse_date(created_s, raw_lineno),
+                rotation_days=_parse_int(rot_s, raw_lineno, "rotation_days"),
+            )
