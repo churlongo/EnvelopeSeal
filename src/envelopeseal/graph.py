@@ -12,3 +12,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from typing import Dict, List, Set
+
+from envelopeseal.manifest import Manifest
+
+
+class GraphError(ValueError):
+    """Raised when a wrap edge references a key id that was never declared."""
+
+
+@dataclass
