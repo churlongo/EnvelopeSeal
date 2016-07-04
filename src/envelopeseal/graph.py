@@ -21,3 +21,13 @@ class GraphError(ValueError):
 
 
 @dataclass
+class WrapGraph:
+    """Adjacency lists in both directions plus the set of known key ids."""
+
+    key_ids: Set[str]
+    out_edges: Dict[str, List[str]] = field(default_factory=dict)
+    in_edges: Dict[str, List[str]] = field(default_factory=dict)
+
+    def wraps_of(self, key_id: str) -> List[str]:
+        """Keys directly wrapped by key_id, sorted by id."""
+
