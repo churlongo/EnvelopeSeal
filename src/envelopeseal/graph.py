@@ -50,3 +50,12 @@ def build_graph(manifest: Manifest) -> WrapGraph:
     for wrap in manifest.wraps:
         if wrap.wrapping_key not in key_ids:
             raise GraphError(
+                f"wrap references unknown wrapping key {wrap.wrapping_key!r}"
+            )
+        if wrap.wrapped_key not in key_ids:
+            raise GraphError(
+                f"wrap references unknown wrapped key {wrap.wrapped_key!r}"
+            )
+        graph.out_edges[wrap.wrapping_key].append(wrap.wrapped_key)
+        graph.in_edges[wrap.wrapped_key].append(wrap.wrapping_key)
+    return graph
