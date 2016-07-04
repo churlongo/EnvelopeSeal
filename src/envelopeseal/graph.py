@@ -40,3 +40,13 @@ class WrapGraph:
 
 
 def build_graph(manifest: Manifest) -> WrapGraph:
+    """Build a WrapGraph, raising GraphError for edges to unknown keys."""
+
+    key_ids = set(manifest.keys.keys())
+    graph = WrapGraph(key_ids=key_ids)
+    for key_id in key_ids:
+        graph.out_edges[key_id] = []
+        graph.in_edges[key_id] = []
+    for wrap in manifest.wraps:
+        if wrap.wrapping_key not in key_ids:
+            raise GraphError(
