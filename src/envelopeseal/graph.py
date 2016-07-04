@@ -31,3 +31,12 @@ class WrapGraph:
     def wraps_of(self, key_id: str) -> List[str]:
         """Keys directly wrapped by key_id, sorted by id."""
 
+        return sorted(self.out_edges.get(key_id, []))
+
+    def wrappers_of(self, key_id: str) -> List[str]:
+        """Keys that directly wrap key_id, sorted by id."""
+
+        return sorted(self.in_edges.get(key_id, []))
+
+
+def build_graph(manifest: Manifest) -> WrapGraph:
