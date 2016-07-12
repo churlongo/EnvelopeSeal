@@ -59,3 +59,13 @@ def build_graph(manifest: Manifest) -> WrapGraph:
         graph.out_edges[wrap.wrapping_key].append(wrap.wrapped_key)
         graph.in_edges[wrap.wrapped_key].append(wrap.wrapping_key)
     return graph
+
+
+def find_cycles(graph: WrapGraph) -> List[List[str]]:
+    """Return every simple cycle as a list of key ids in traversal order.
+
+    Uses depth first search with a recursion stack. Each cycle is reported once,
+    normalised to start at its lexicographically smallest member so identical
+    input yields identical output. The returned list is sorted.
+    """
+
