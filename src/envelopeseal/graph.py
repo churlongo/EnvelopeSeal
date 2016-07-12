@@ -69,3 +69,12 @@ def find_cycles(graph: WrapGraph) -> List[List[str]]:
     input yields identical output. The returned list is sorted.
     """
 
+    found: Set[tuple] = set()
+    on_stack: List[str] = []
+    on_stack_set: Set[str] = set()
+    visited: Set[str] = set()
+
+    def normalise(cycle: List[str]) -> tuple:
+        smallest = min(range(len(cycle)), key=lambda i: cycle[i])
+        rotated = cycle[smallest:] + cycle[:smallest]
+        return tuple(rotated)
