@@ -78,3 +78,13 @@ def find_cycles(graph: WrapGraph) -> List[List[str]]:
         smallest = min(range(len(cycle)), key=lambda i: cycle[i])
         rotated = cycle[smallest:] + cycle[:smallest]
         return tuple(rotated)
+
+    def visit(node: str) -> None:
+        on_stack.append(node)
+        on_stack_set.add(node)
+        for nxt in graph.wraps_of(node):
+            if nxt in on_stack_set:
+                start = on_stack.index(nxt)
+                found.add(normalise(on_stack[start:]))
+            elif nxt not in visited:
+                visit(nxt)
