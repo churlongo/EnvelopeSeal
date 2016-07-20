@@ -98,3 +98,12 @@ def find_cycles(graph: WrapGraph) -> List[List[str]]:
 
     return [list(cycle) for cycle in sorted(found)]
 
+
+def reachable_data_keys(graph: WrapGraph, start: str, data_keys: Set[str]) -> Set[str]:
+    """Data keys reachable from start by following wrap edges downward.
+
+    Cycle safe: a visited set prevents infinite recursion when the graph is not
+    yet known to be acyclic. The start key itself counts only if it is a data
+    key, matching the idea that compromising a key exposes what it protects.
+    """
+
