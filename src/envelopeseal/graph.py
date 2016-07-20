@@ -88,3 +88,13 @@ def find_cycles(graph: WrapGraph) -> List[List[str]]:
                 found.add(normalise(on_stack[start:]))
             elif nxt not in visited:
                 visit(nxt)
+        on_stack.pop()
+        on_stack_set.discard(node)
+        visited.add(node)
+
+    for key_id in sorted(graph.key_ids):
+        if key_id not in visited:
+            visit(key_id)
+
+    return [list(cycle) for cycle in sorted(found)]
+
