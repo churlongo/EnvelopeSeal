@@ -418,3 +418,56 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
 It runs 28 tests. They cover manifest parsing including every rejection path,
+graph construction and the rejection of edges to unknown keys, cycle detection
+and normalisation, orphan detection, cycle safe reachability, the strength
+ordering for both algorithm families and both failure modes, rotation including
+the exempt and overdue cases, blast radius counts and ordering, and the report
+layer including determinism and the exact finding codes for both samples.
+
+The final run reported:
+
+```
+Ran 28 tests in 0.003s
+
+OK
+```
+
+Both SVG assets under `docs/assets/` parse as XML, carry a `viewBox`, a
+`role="img"`, and a title and description, and contain no blur, drop shadow,
+turbulence, or em dash.
+
+## Limitations
+
+- It audits declared metadata, not real key material. It cannot tell you that a
+  key labelled `AES-GCM 256` is actually 256 bits of good randomness. It trusts
+  the manifest.
+- The strength ordering is coarse. It compares levels from a small table and
+  does not model algorithm-specific weaknesses, quantum resistance, or mode
+  misuse. Equal levels across families are treated as equal.
+- There is no notion of key usage beyond wrap and data. It does not model signing
+  keys, authentication keys, or key purpose restrictions.
+- Rotation is a simple created-plus-interval calculation. It does not model grace
+  periods, overlap windows during rotation, or staggered re-wrapping.
+- It has no opinion on how many wrappers a data key should have. One is enough to
+  clear `missing-wrap`; it does not check for a minimum redundancy.
+- Blast radius counts reachable data keys. It does not weight them by
+  sensitivity, because the manifest carries no sensitivity field.
+- The manifest is trusted input. The tool does not authenticate it or verify a
+  signature over it.
+
+## Roadmap
+
+These are directions, not commitments, and carry no dates.
+
+- An optional minimum-wrapper check, so a data key wrapped by only one key
+  encrypting key can be flagged when policy requires redundancy.
+- A per-key sensitivity field so blast radius can be weighted, not just counted.
+- A machine-readable output mode alongside the text mode, for pipelines that
+  prefer to parse structured records.
+- A wider strength table covering elliptic curve sizes.
+
+## License
+
+MIT. See [LICENSE](LICENSE). Copyright 2026 the EnvelopeSeal authors.
+
+<!-- draft note 52 -->
