@@ -107,3 +107,13 @@ def reachable_data_keys(graph: WrapGraph, start: str, data_keys: Set[str]) -> Se
     key, matching the idea that compromising a key exposes what it protects.
     """
 
+    seen: Set[str] = set()
+    result: Set[str] = set()
+
+    def visit(node: str) -> None:
+        for nxt in graph.wraps_of(node):
+            if nxt in seen:
+                continue
+            seen.add(nxt)
+            if nxt in data_keys:
+                result.add(nxt)
