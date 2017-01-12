@@ -7,3 +7,7 @@ It is the single number that says how bad losing that one key would be.
 
 Data keys are not reported here: their blast radius is themselves, which is not
 useful for prioritising which key encrypting keys to protect hardest.
+"""
+
+from __future__ import annotations
+
