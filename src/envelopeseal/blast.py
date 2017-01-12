@@ -11,3 +11,8 @@ useful for prioritising which key encrypting keys to protect hardest.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
+from typing import List, Set
+
+from envelopeseal.graph import WrapGraph, reachable_data_keys
+from envelopeseal.manifest import Manifest
