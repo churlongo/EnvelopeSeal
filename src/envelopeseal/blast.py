@@ -20,3 +20,8 @@ from envelopeseal.manifest import Manifest
 
 @dataclass(frozen=True)
 class BlastRadius:
+    """The reachable data keys for one key encrypting key."""
+
+    key_id: str
+    data_keys: List[str]
+
