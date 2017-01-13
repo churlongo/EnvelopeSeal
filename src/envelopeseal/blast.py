@@ -16,3 +16,7 @@ from typing import List, Set
 
 from envelopeseal.graph import WrapGraph, reachable_data_keys
 from envelopeseal.manifest import Manifest
+
+
+@dataclass(frozen=True)
+class BlastRadius:
