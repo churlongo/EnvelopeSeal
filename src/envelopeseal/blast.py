@@ -25,3 +25,7 @@ class BlastRadius:
     key_id: str
     data_keys: List[str]
 
+    @property
+    def count(self) -> int:
+        return len(self.data_keys)
+
