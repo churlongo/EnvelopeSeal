@@ -29,3 +29,7 @@ class BlastRadius:
     def count(self) -> int:
         return len(self.data_keys)
 
+
+def data_key_ids(manifest: Manifest) -> Set[str]:
+    """The set of data key ids in the manifest."""
+
