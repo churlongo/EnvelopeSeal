@@ -33,3 +33,8 @@ class BlastRadius:
 def data_key_ids(manifest: Manifest) -> Set[str]:
     """The set of data key ids in the manifest."""
 
+    return {k.key_id for k in manifest.keys.values() if k.is_data_key}
+
+
+def blast_radii(manifest: Manifest, graph: WrapGraph) -> List[BlastRadius]:
+    """Blast radius for every key encrypting key.
