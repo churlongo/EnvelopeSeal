@@ -38,3 +38,7 @@ def data_key_ids(manifest: Manifest) -> Set[str]:
 
 def blast_radii(manifest: Manifest, graph: WrapGraph) -> List[BlastRadius]:
     """Blast radius for every key encrypting key.
+
+    Sorted first by descending count so the widest blast radius is listed first,
+    then by key id for a stable order among ties.
+    """
