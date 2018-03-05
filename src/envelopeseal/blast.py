@@ -42,3 +42,11 @@ def blast_radii(manifest: Manifest, graph: WrapGraph) -> List[BlastRadius]:
     Sorted first by descending count so the widest blast radius is listed first,
     then by key id for a stable order among ties.
     """
+
+    deks = data_key_ids(manifest)
+    keks = [k.key_id for k in manifest.keys.values() if k.is_kek]
+    result = []
+    for kek in keks:
+        reached = sorted(reachable_data_keys(graph, kek, deks))
+        result.append(BlastRadius(key_id=kek, data_keys=reached))
+    result.sort(key=lambda b: (-b.count, b.key_id))
