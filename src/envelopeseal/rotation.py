@@ -14,3 +14,12 @@ from __future__ import annotations
 
 import datetime
 from dataclasses import dataclass
+
+from envelopeseal.manifest import Key, Manifest
+
+
+@dataclass(frozen=True)
+class RotationStatus:
+    """The rotation state of one key against an as-of date."""
+
+    key_id: str
