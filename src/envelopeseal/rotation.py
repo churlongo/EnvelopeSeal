@@ -41,3 +41,12 @@ class RotationStatus:
     @property
     def days_overdue(self) -> int:
         if not self.overdue or self.due_date is None:
+            return 0
+        return (self.as_of - self.due_date).days
+
+
+def status_for(key: Key, as_of: datetime.date) -> RotationStatus:
+    """Compute the rotation status of one key."""
+
+    if key.rotation_days == 0:
+        due = None
