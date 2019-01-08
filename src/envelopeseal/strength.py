@@ -37,3 +37,11 @@ _MODULUS_LEVELS = {
 }
 
 
+class StrengthError(ValueError):
+    """Raised when a key's algorithm or size cannot be scored."""
+
+
+def security_level(key: Key) -> int:
+    """Return the comparable security level in bits for a key.
+
+    Raises StrengthError for an unknown algorithm or an unmapped modulus size,
