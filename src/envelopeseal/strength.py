@@ -21,3 +21,11 @@ from envelopeseal.manifest import Key
 
 
 # Family of an algorithm decides how its declared bits map to a security level.
+# "symmetric" means the key size is the security level directly.
+# "modulus" means an RSA or finite field modulus size, mapped below.
+_SYMMETRIC = {"AES-GCM", "AES-KW", "AES-CBC", "CHACHA20-POLY1305"}
+_MODULUS = {"RSA-OAEP", "RSA-PSS", "DH"}
+
+# NIST SP 800-57 Part 1 Rev 5, Table 2: modulus size to comparable symmetric
+# security strength. Keys are the declared modulus bits, values the level.
+_MODULUS_LEVELS = {
