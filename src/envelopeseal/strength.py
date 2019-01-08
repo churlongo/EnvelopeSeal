@@ -29,3 +29,11 @@ _MODULUS = {"RSA-OAEP", "RSA-PSS", "DH"}
 # NIST SP 800-57 Part 1 Rev 5, Table 2: modulus size to comparable symmetric
 # security strength. Keys are the declared modulus bits, values the level.
 _MODULUS_LEVELS = {
+    1024: 80,
+    2048: 112,
+    3072: 128,
+    7680: 192,
+    15360: 256,
+}
+
+
