@@ -45,3 +45,11 @@ def security_level(key: Key) -> int:
     """Return the comparable security level in bits for a key.
 
     Raises StrengthError for an unknown algorithm or an unmapped modulus size,
+    rather than guessing, because a silent wrong number would hide a real
+    inversion.
+    """
+
+    algo = key.algorithm.upper()
+    if algo in _SYMMETRIC:
+        return key.bits
+    if algo in _MODULUS:
