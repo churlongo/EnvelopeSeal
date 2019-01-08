@@ -13,3 +13,11 @@ README. Symmetric algorithms use their key size directly. RSA and other modulus
 based algorithms map their modulus size to an approximate symmetric equivalent
 using the ordering published by NIST SP 800-57, rounded to the levels the tool
 compares.
+"""
+
+from __future__ import annotations
+
+from envelopeseal.manifest import Key
+
+
+# Family of an algorithm decides how its declared bits map to a security level.
