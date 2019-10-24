@@ -470,4 +470,4 @@ These are directions, not commitments, and carry no dates.
 
 MIT. See [LICENSE](LICENSE). Copyright 2026 the EnvelopeSeal authors.
 
-<!-- draft note 474 -->
+<!-- draft note 475 -->
