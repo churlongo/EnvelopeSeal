@@ -20,3 +20,14 @@ import sys
 from typing import List, Optional
 
 from envelopeseal import __version__
+from envelopeseal import graph as graph_mod
+from envelopeseal import report as report_mod
+from envelopeseal import strength as strength_mod
+from envelopeseal.manifest import ManifestError, parse_file
+
+
+EXIT_OK = 0
+EXIT_FINDINGS = 1
+EXIT_USAGE = 2
+
+
