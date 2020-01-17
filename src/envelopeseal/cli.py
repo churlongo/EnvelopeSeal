@@ -31,3 +31,14 @@ EXIT_FINDINGS = 1
 EXIT_USAGE = 2
 
 
+def _as_of(value: str) -> datetime.date:
+    try:
+        return datetime.date.fromisoformat(value)
+    except ValueError:
+        raise argparse.ArgumentTypeError(
+            f"invalid as-of date {value!r}, expected YYYY-MM-DD"
+        )
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
