@@ -10,3 +10,13 @@ Subcommands:
 Exit codes: 0 clean, 1 findings present, 2 usage or input error.
 The as-of date is required for validate and rotation because rotation is a
 function of a date and the tool never reads the wall clock.
+"""
+
+from __future__ import annotations
+
+import argparse
+import datetime
+import sys
+from typing import List, Optional
+
+from envelopeseal import __version__
