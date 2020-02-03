@@ -42,3 +42,14 @@ def _as_of(value: str) -> datetime.date:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
+        prog="envelopeseal",
+        description="Audit an envelope encryption key hierarchy.",
+    )
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    p_validate = sub.add_parser(
+        "validate", help="run every check and report findings"
+    )
+    p_validate.add_argument("manifest", help="path to the key manifest")
+    p_validate.add_argument(
+        "--as-of", type=_as_of, required=True, help="as-of date YYYY-MM-DD"
