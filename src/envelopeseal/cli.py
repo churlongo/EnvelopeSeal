@@ -86,3 +86,14 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     if args.command == "version":
         print(f"envelopeseal {__version__}")
+        return EXIT_OK
+
+    try:
+        manifest, graph = _load(args.manifest)
+    except FileNotFoundError:
+        print(f"error: manifest not found: {args.manifest}", file=sys.stderr)
+        return EXIT_USAGE
+    except (ManifestError, graph_mod.GraphError, strength_mod.StrengthError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return EXIT_USAGE
+
