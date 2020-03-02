@@ -64,3 +64,14 @@ def build_parser() -> argparse.ArgumentParser:
         "--as-of", type=_as_of, required=True, help="as-of date YYYY-MM-DD"
     )
 
+    sub.add_parser("version", help="print the version")
+    return parser
+
+
+def _load(path: str):
+    """Parse manifest and build graph, mapping domain errors to usage exits."""
+
+    manifest = parse_file(path)
+    graph = graph_mod.build_graph(manifest)
+    # Score every key once so an unknown algorithm or size fails loudly and
+    # early, rather than silently skipping an inversion check later.
