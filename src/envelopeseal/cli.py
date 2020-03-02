@@ -53,3 +53,14 @@ def build_parser() -> argparse.ArgumentParser:
     p_validate.add_argument("manifest", help="path to the key manifest")
     p_validate.add_argument(
         "--as-of", type=_as_of, required=True, help="as-of date YYYY-MM-DD"
+    )
+
+    p_blast = sub.add_parser("blast", help="report blast radius per key encrypting key")
+    p_blast.add_argument("manifest", help="path to the key manifest")
+
+    p_rotation = sub.add_parser("rotation", help="report rotation status per key")
+    p_rotation.add_argument("manifest", help="path to the key manifest")
+    p_rotation.add_argument(
+        "--as-of", type=_as_of, required=True, help="as-of date YYYY-MM-DD"
+    )
+
