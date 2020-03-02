@@ -75,3 +75,14 @@ def _load(path: str):
     graph = graph_mod.build_graph(manifest)
     # Score every key once so an unknown algorithm or size fails loudly and
     # early, rather than silently skipping an inversion check later.
+    for key in manifest.keys.values():
+        strength_mod.security_level(key)
+    return manifest, graph
+
+
+def main(argv: Optional[List[str]] = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+
+    if args.command == "version":
+        print(f"envelopeseal {__version__}")
