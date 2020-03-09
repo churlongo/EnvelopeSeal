@@ -16,3 +16,16 @@ line order. Rendering is pure text with one fact per line.
 from __future__ import annotations
 
 import datetime
+from dataclasses import dataclass
+from typing import List
+
+from envelopeseal import blast as blast_mod
+from envelopeseal import graph as graph_mod
+from envelopeseal import rotation as rotation_mod
+from envelopeseal import strength as strength_mod
+from envelopeseal.manifest import Manifest
+
+
+@dataclass(frozen=True)
+class Finding:
+    """One problem with the hierarchy."""
