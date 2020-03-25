@@ -29,3 +29,17 @@ from envelopeseal.manifest import Manifest
 @dataclass(frozen=True)
 class Finding:
     """One problem with the hierarchy."""
+
+    code: str
+    subject: str
+    detail: str
+
+
+def _missing_wrap_findings(manifest: Manifest, graph: graph_mod.WrapGraph) -> List[Finding]:
+    findings = []
+    for key in manifest.keys.values():
+        if key.is_data_key and not graph.wrappers_of(key.key_id):
+            findings.append(
+                Finding(
+                    code="missing-wrap",
+                    subject=key.key_id,
