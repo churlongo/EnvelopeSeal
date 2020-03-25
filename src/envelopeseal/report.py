@@ -70,3 +70,17 @@ def _inversion_findings(manifest: Manifest) -> List[Finding]:
 
 
 def _cycle_findings(graph: graph_mod.WrapGraph) -> List[Finding]:
+    findings = []
+    for cycle in graph_mod.find_cycles(graph):
+        chain = " -> ".join(cycle + [cycle[0]])
+        findings.append(
+            Finding(
+                code="cycle",
+                subject=cycle[0],
+                detail=f"wrap cycle: {chain}",
+            )
+        )
+    return findings
+
+
+def _orphan_findings(graph: graph_mod.WrapGraph) -> List[Finding]:
