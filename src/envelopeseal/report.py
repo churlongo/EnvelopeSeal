@@ -56,3 +56,17 @@ def _inversion_findings(manifest: Manifest) -> List[Finding]:
         wrapped = manifest.keys[wrap.wrapped_key]
         if strength_mod.is_inversion(wrapping, wrapped):
             findings.append(
+                Finding(
+                    code="inversion",
+                    subject=f"{wrap.wrapping_key}->{wrap.wrapped_key}",
+                    detail=(
+                        f"{wrap.wrapping_key} ({strength_mod.describe(wrapping)}) "
+                        f"is weaker than {wrap.wrapped_key} "
+                        f"({strength_mod.describe(wrapped)})"
+                    ),
+                )
+            )
+    return findings
+
+
+def _cycle_findings(graph: graph_mod.WrapGraph) -> List[Finding]:
