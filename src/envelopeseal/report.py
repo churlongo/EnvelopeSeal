@@ -43,3 +43,16 @@ def _missing_wrap_findings(manifest: Manifest, graph: graph_mod.WrapGraph) -> Li
                 Finding(
                     code="missing-wrap",
                     subject=key.key_id,
+                    detail="data key is wrapped by no key encrypting key",
+                )
+            )
+    return findings
+
+
+def _inversion_findings(manifest: Manifest) -> List[Finding]:
+    findings = []
+    for wrap in manifest.wraps:
+        wrapping = manifest.keys[wrap.wrapping_key]
+        wrapped = manifest.keys[wrap.wrapped_key]
+        if strength_mod.is_inversion(wrapping, wrapped):
+            findings.append(
