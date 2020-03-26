@@ -97,3 +97,17 @@ def _orphan_findings(graph: graph_mod.WrapGraph) -> List[Finding]:
 def _overdue_findings(manifest: Manifest, as_of: datetime.date) -> List[Finding]:
     findings = []
     for status in rotation_mod.overdue(manifest, as_of):
+        findings.append(
+            Finding(
+                code="overdue",
+                subject=status.key_id,
+                detail=(
+                    f"due {status.due_date.isoformat()}, "
+                    f"{status.days_overdue} days overdue as of "
+                    f"{status.as_of.isoformat()}"
+                ),
+            )
+        )
+    return findings
+
+
