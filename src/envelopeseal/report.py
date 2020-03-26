@@ -84,3 +84,16 @@ def _cycle_findings(graph: graph_mod.WrapGraph) -> List[Finding]:
 
 
 def _orphan_findings(graph: graph_mod.WrapGraph) -> List[Finding]:
+    return [
+        Finding(
+            code="orphan",
+            subject=key_id,
+            detail="key protects nothing and is protected by nothing",
+        )
+        for key_id in graph_mod.orphans(graph)
+    ]
+
+
+def _overdue_findings(manifest: Manifest, as_of: datetime.date) -> List[Finding]:
+    findings = []
+    for status in rotation_mod.overdue(manifest, as_of):
