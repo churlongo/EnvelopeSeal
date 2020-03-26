@@ -111,3 +111,16 @@ def _overdue_findings(manifest: Manifest, as_of: datetime.date) -> List[Finding]
     return findings
 
 
+def collect_findings(manifest: Manifest, graph: graph_mod.WrapGraph, as_of: datetime.date) -> List[Finding]:
+    """All findings, sorted by (code, subject) for deterministic output."""
+
+    findings: List[Finding] = []
+    findings += _missing_wrap_findings(manifest, graph)
+    findings += _inversion_findings(manifest)
+    findings += _cycle_findings(graph)
+    findings += _orphan_findings(graph)
+    findings += _overdue_findings(manifest, as_of)
+    findings.sort(key=lambda f: (f.code, f.subject))
+    return findings
+
+
