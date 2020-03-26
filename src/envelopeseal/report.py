@@ -124,3 +124,17 @@ def collect_findings(manifest: Manifest, graph: graph_mod.WrapGraph, as_of: date
     return findings
 
 
+def render_validate(manifest: Manifest, graph: graph_mod.WrapGraph, as_of: datetime.date) -> str:
+    """Render the validate report. Ends without a trailing blank line."""
+
+    findings = collect_findings(manifest, graph, as_of)
+    lines = [
+        "envelopeseal validate",
+        f"keys {len(manifest.keys)}",
+        f"wraps {len(manifest.wraps)}",
+        f"as-of {as_of.isoformat()}",
+        f"findings {len(findings)}",
+    ]
+    if not findings:
+        lines.append("ok no findings")
+    else:
