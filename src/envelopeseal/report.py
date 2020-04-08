@@ -138,3 +138,16 @@ def render_validate(manifest: Manifest, graph: graph_mod.WrapGraph, as_of: datet
     if not findings:
         lines.append("ok no findings")
     else:
+        for f in findings:
+            lines.append(f"{f.code} {f.subject}: {f.detail}")
+    return "\n".join(lines)
+
+
+def render_blast(manifest: Manifest, graph: graph_mod.WrapGraph) -> str:
+    """Render the blast radius report, widest first."""
+
+    radii = blast_mod.blast_radii(manifest, graph)
+    lines = ["envelopeseal blast", f"keks {len(radii)}"]
+    for radius in radii:
+        keys = ",".join(radius.data_keys) if radius.data_keys else "-"
+        lines.append(f"{radius.key_id} blast {radius.count} reaches {keys}")
