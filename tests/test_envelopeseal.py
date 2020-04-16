@@ -62,3 +62,17 @@ class GraphTests(unittest.TestCase):
         g = graph.build_graph(m)
         cycles = graph.find_cycles(g)
         self.assertEqual(cycles, [["loop-a", "loop-b"]])
+
+    def test_orphan_detected(self):
+        m = manifest.parse_file(BROKEN)
+        g = graph.build_graph(m)
+        self.assertIn("lonely-kek", graph.orphans(g))
+
+    def test_healthy_has_no_orphans(self):
+        m = manifest.parse_file(HEALTHY)
+        g = graph.build_graph(m)
+        self.assertEqual(graph.orphans(g), [])
+
+    def test_reachability_from_root(self):
+        m = manifest.parse_file(HEALTHY)
+        g = graph.build_graph(m)
