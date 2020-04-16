@@ -17,3 +17,18 @@ class ManifestParseTests(unittest.TestCase):
         self.assertEqual(len(m.wraps), 6)
         self.assertTrue(m.keys["dek-orders"].is_data_key)
         self.assertTrue(m.keys["root-hsm"].is_kek)
+
+    def test_unknown_role_rejected(self):
+        with self.assertRaises(manifest.ManifestError):
+            manifest.parse_text("key k1 root AES-GCM 256 2026-01-01 0")
+
+    def test_bad_field_count_rejected(self):
+        with self.assertRaises(manifest.ManifestError):
+            manifest.parse_text("key k1 dek AES-GCM 256")
+
+    def test_duplicate_key_rejected(self):
+        text = (
+            "key k1 dek AES-GCM 256 2026-01-01 0\n"
+            "key k1 dek AES-GCM 256 2026-01-01 0\n"
+        )
+        with self.assertRaises(manifest.ManifestError):
