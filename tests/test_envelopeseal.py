@@ -47,3 +47,18 @@ class ManifestParseTests(unittest.TestCase):
 class GraphTests(unittest.TestCase):
     def test_edge_to_unknown_key_rejected(self):
         m = manifest.parse_text(
+            "key k1 kek AES-KW 256 2026-01-01 0\nwrap k1 ghost\n"
+        )
+        with self.assertRaises(graph.GraphError):
+            graph.build_graph(m)
+
+    def test_healthy_has_no_cycles(self):
+        m = manifest.parse_file(HEALTHY)
+        g = graph.build_graph(m)
+        self.assertEqual(graph.find_cycles(g), [])
+
+    def test_cycle_detected_and_normalised(self):
+        m = manifest.parse_file(BROKEN)
+        g = graph.build_graph(m)
+        cycles = graph.find_cycles(g)
+        self.assertEqual(cycles, [["loop-a", "loop-b"]])
