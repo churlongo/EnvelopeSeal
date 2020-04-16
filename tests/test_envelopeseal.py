@@ -32,3 +32,18 @@ class ManifestParseTests(unittest.TestCase):
             "key k1 dek AES-GCM 256 2026-01-01 0\n"
         )
         with self.assertRaises(manifest.ManifestError):
+            manifest.parse_text(text)
+
+    def test_bad_date_rejected(self):
+        with self.assertRaises(manifest.ManifestError):
+            manifest.parse_text("key k1 dek AES-GCM 256 2026-13-40 0")
+
+    def test_comments_and_blanks_ignored(self):
+        text = "# comment\n\nkey k1 dek AES-GCM 256 2026-01-01 0\n"
+        m = manifest.parse_text(text)
+        self.assertEqual(len(m.keys), 1)
+
+
+class GraphTests(unittest.TestCase):
+    def test_edge_to_unknown_key_rejected(self):
+        m = manifest.parse_text(
