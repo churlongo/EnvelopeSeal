@@ -76,3 +76,18 @@ class GraphTests(unittest.TestCase):
     def test_reachability_from_root(self):
         m = manifest.parse_file(HEALTHY)
         g = graph.build_graph(m)
+        deks = blast.data_key_ids(m)
+        reached = graph.reachable_data_keys(g, "root-hsm", deks)
+        self.assertEqual(
+            reached,
+            {"dek-orders", "dek-invoices", "dek-events", "dek-metrics"},
+        )
+
+
+class StrengthTests(unittest.TestCase):
+    def test_symmetric_level_is_bits(self):
+        k = manifest.parse_text(
+            "key k1 dek AES-GCM 256 2026-01-01 0"
+        ).keys["k1"]
+        self.assertEqual(strength.security_level(k), 256)
+
