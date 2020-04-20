@@ -91,3 +91,18 @@ class StrengthTests(unittest.TestCase):
         ).keys["k1"]
         self.assertEqual(strength.security_level(k), 256)
 
+    def test_rsa_modulus_mapped(self):
+        k = manifest.parse_text(
+            "key k1 kek RSA-OAEP 2048 2026-01-01 0"
+        ).keys["k1"]
+        self.assertEqual(strength.security_level(k), 112)
+
+    def test_unknown_algorithm_raises(self):
+        k = manifest.parse_text(
+            "key k1 dek MYSTERY 256 2026-01-01 0"
+        ).keys["k1"]
+        with self.assertRaises(strength.StrengthError):
+            strength.security_level(k)
+
+    def test_unmapped_modulus_raises(self):
+        k = manifest.parse_text(
