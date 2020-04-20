@@ -106,3 +106,18 @@ class StrengthTests(unittest.TestCase):
 
     def test_unmapped_modulus_raises(self):
         k = manifest.parse_text(
+            "key k1 kek RSA-OAEP 999 2026-01-01 0"
+        ).keys["k1"]
+        with self.assertRaises(strength.StrengthError):
+            strength.security_level(k)
+
+    def test_inversion_detected(self):
+        m = manifest.parse_file(BROKEN)
+        self.assertTrue(
+            strength.is_inversion(m.keys["weak-wrapper"], m.keys["dek-strong"])
+        )
+
+    def test_equal_strength_is_not_inversion(self):
+        m = manifest.parse_file(HEALTHY)
+        self.assertFalse(
+            strength.is_inversion(m.keys["root-hsm"], m.keys["mid-payments-kek"])
