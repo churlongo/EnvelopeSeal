@@ -121,3 +121,17 @@ class StrengthTests(unittest.TestCase):
         m = manifest.parse_file(HEALTHY)
         self.assertFalse(
             strength.is_inversion(m.keys["root-hsm"], m.keys["mid-payments-kek"])
+        )
+
+
+class RotationTests(unittest.TestCase):
+    def test_exempt_never_overdue(self):
+        m = manifest.parse_file(HEALTHY)
+        s = rotation.status_for(m.keys["root-hsm"], AS_OF)
+        self.assertTrue(s.exempt)
+        self.assertFalse(s.overdue)
+
+    def test_open_interval_not_overdue(self):
+        m = manifest.parse_file(HEALTHY)
+        s = rotation.status_for(m.keys["dek-orders"], AS_OF)
+        self.assertFalse(s.overdue)
