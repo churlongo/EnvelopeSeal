@@ -150,3 +150,18 @@ class RotationTests(unittest.TestCase):
 
 
 class BlastTests(unittest.TestCase):
+    def test_root_reaches_all_data_keys(self):
+        m = manifest.parse_file(HEALTHY)
+        g = graph.build_graph(m)
+        radii = {b.key_id: b.count for b in blast.blast_radii(m, g)}
+        self.assertEqual(radii["root-hsm"], 4)
+        self.assertEqual(radii["mid-payments-kek"], 2)
+        self.assertEqual(radii["mid-telemetry-kek"], 2)
+
+    def test_widest_listed_first(self):
+        m = manifest.parse_file(HEALTHY)
+        g = graph.build_graph(m)
+        radii = blast.blast_radii(m, g)
+        self.assertEqual(radii[0].key_id, "root-hsm")
+
+
