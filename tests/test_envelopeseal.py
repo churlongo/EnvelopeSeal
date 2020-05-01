@@ -135,3 +135,18 @@ class RotationTests(unittest.TestCase):
         m = manifest.parse_file(HEALTHY)
         s = rotation.status_for(m.keys["dek-orders"], AS_OF)
         self.assertFalse(s.overdue)
+
+    def test_overdue_key_and_days(self):
+        m = manifest.parse_file(BROKEN)
+        s = rotation.status_for(m.keys["dek-stale"], AS_OF)
+        self.assertTrue(s.overdue)
+        # created 2026-01-01 + 30 days = due 2026-01-31; as-of 2026-09-02.
+        self.assertEqual(s.due_date, datetime.date(2026, 1, 31))
+        self.assertEqual(s.days_overdue, (AS_OF - datetime.date(2026, 1, 31)).days)
+
+    def test_healthy_has_no_overdue(self):
+        m = manifest.parse_file(HEALTHY)
+        self.assertEqual(rotation.overdue(m, AS_OF), [])
+
+
+class BlastTests(unittest.TestCase):
