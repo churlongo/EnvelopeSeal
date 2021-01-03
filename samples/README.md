@@ -12,3 +12,7 @@ a key of equal or lower strength, so there is no inversion. There is no cycle.
 No key is an orphan. Against the as-of date used in the README, 2026-09-02, no
 rotation interval has lapsed. The root is marked with a rotation interval of 0,
 meaning it is replaced by ceremony rather than on a schedule, so it is exempt.
+
+## broken.manifest
+
+Constructed to hold exactly one of every fault the tool detects, so the
