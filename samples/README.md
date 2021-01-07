@@ -16,3 +16,7 @@ meaning it is replaced by ceremony rather than on a schedule, so it is exempt.
 ## broken.manifest
 
 Constructed to hold exactly one of every fault the tool detects, so the
+validate output shows each finding code once or twice:
+
+- inversion: `weak-wrapper` is RSA-OAEP 2048 (security level 112) and it wraps
+  `dek-strong`, an AES-GCM 256 key (level 256).
