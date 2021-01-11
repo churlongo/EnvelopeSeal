@@ -20,3 +20,7 @@ validate output shows each finding code once or twice:
 
 - inversion: `weak-wrapper` is RSA-OAEP 2048 (security level 112) and it wraps
   `dek-strong`, an AES-GCM 256 key (level 256).
+- cycle: `loop-a` wraps `loop-b` and `loop-b` wraps `loop-a`.
+- orphan: `lonely-kek` has no wrap edge in either direction. `dek-uncovered`
+  also has no edges, so it is reported both as an orphan and as missing-wrap,
+  which is correct: a data key with no wrap edge at all is both uncovered and
