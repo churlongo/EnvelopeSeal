@@ -97,3 +97,23 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"error: {exc}", file=sys.stderr)
         return EXIT_USAGE
 
+    if args.command == "validate":
+        text = report_mod.render_validate(manifest, graph, args.as_of)
+        print(text)
+        findings = report_mod.collect_findings(manifest, graph, args.as_of)
+        return EXIT_FINDINGS if findings else EXIT_OK
+
+    if args.command == "blast":
+        print(report_mod.render_blast(manifest, graph))
+        return EXIT_OK
+
+    if args.command == "rotation":
+        print(report_mod.render_rotation(manifest, args.as_of))
+        overdue = report_mod.rotation_mod.overdue(manifest, args.as_of)
+        return EXIT_FINDINGS if overdue else EXIT_OK
+
+    parser.error(f"unknown command {args.command!r}")
+    return EXIT_USAGE
+
+
+if __name__ == "__main__":
