@@ -1,2 +1,6 @@
 # envelopeseal broken manifest, test vector authored by hand.
 # See samples/README.md for how this was constructed.
+# It deliberately contains one of each fault the tool detects:
+#   inversion : weak-wrapper (level 112) wraps dek-strong (level 256)
+#   cycle     : loop-a -> loop-b -> loop-a
+#   orphan    : lonely-kek has no wrap edge in either direction
