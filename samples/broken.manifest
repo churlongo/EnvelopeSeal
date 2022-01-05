@@ -4,3 +4,7 @@
 #   inversion : weak-wrapper (level 112) wraps dek-strong (level 256)
 #   cycle     : loop-a -> loop-b -> loop-a
 #   orphan    : lonely-kek has no wrap edge in either direction
+#   overdue   : dek-stale rotation lapsed well before the README as-of date
+#   missing-wrap : dek-uncovered is a data key wrapped by nothing
+
+key root-hsm       kek AES-KW    256 2026-01-01 0
