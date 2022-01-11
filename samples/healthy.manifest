@@ -3,3 +3,6 @@
 # Layout: one root wraps two mid keks; each mid kek wraps data keys.
 # All strengths are non-decreasing down the tree, so no inversion.
 # as-of used in the README is 2026-09-02; all rotation intervals are still open.
+
+# root of trust, replaced by ceremony not schedule, so rotation is exempt (0)
+key root-hsm            kek AES-KW    256 2026-01-01 0
