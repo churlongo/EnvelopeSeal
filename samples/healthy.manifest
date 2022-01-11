@@ -1,2 +1,5 @@
 # envelopeseal healthy manifest, test vector authored by hand.
 # See samples/README.md for how this was constructed.
+# Layout: one root wraps two mid keks; each mid kek wraps data keys.
+# All strengths are non-decreasing down the tree, so no inversion.
+# as-of used in the README is 2026-09-02; all rotation intervals are still open.
