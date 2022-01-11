@@ -16,3 +16,6 @@ key lonely-kek     kek AES-KW    256 2026-01-01 365
 key dek-strong     dek AES-GCM   256 2026-07-01 90
 key dek-stale      dek AES-GCM   256 2026-01-01 30
 key dek-uncovered  dek AES-GCM   256 2026-07-01 90
+
+# inversion: a level 112 key wrapping a level 256 key
+wrap weak-wrapper  dek-strong
