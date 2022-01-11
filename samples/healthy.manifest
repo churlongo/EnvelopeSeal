@@ -6,3 +6,6 @@
 
 # root of trust, replaced by ceremony not schedule, so rotation is exempt (0)
 key root-hsm            kek AES-KW    256 2026-01-01 0
+key mid-payments-kek    kek AES-KW    256 2026-02-01 365
+key mid-telemetry-kek   kek AES-KW    256 2026-02-01 365
+
