@@ -12,3 +12,7 @@ key weak-wrapper   kek RSA-OAEP 2048 2026-01-01 365
 key loop-a         kek AES-KW    256 2026-01-01 365
 key loop-b         kek AES-KW    256 2026-01-01 365
 key lonely-kek     kek AES-KW    256 2026-01-01 365
+
+key dek-strong     dek AES-GCM   256 2026-07-01 90
+key dek-stale      dek AES-GCM   256 2026-01-01 30
+key dek-uncovered  dek AES-GCM   256 2026-07-01 90
