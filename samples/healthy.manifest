@@ -12,3 +12,6 @@ key mid-telemetry-kek   kek AES-KW    256 2026-02-01 365
 key dek-orders          dek AES-GCM   256 2026-07-01 90
 key dek-invoices        dek AES-GCM   256 2026-07-01 90
 key dek-events          dek AES-GCM   256 2026-07-15 90
+key dek-metrics         dek AES-GCM   256 2026-07-15 90
+
+wrap root-hsm            mid-payments-kek
