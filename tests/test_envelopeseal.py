@@ -165,3 +165,33 @@ class BlastTests(unittest.TestCase):
         self.assertEqual(radii[0].key_id, "root-hsm")
 
 
+class ReportTests(unittest.TestCase):
+    def test_healthy_has_no_findings(self):
+        m = manifest.parse_file(HEALTHY)
+        g = graph.build_graph(m)
+        self.assertEqual(report.collect_findings(m, g, AS_OF), [])
+
+    def test_broken_has_expected_finding_codes(self):
+        m = manifest.parse_file(BROKEN)
+        g = graph.build_graph(m)
+        codes = {f.code for f in report.collect_findings(m, g, AS_OF)}
+        self.assertEqual(
+            codes,
+            {"missing-wrap", "inversion", "cycle", "orphan", "overdue"},
+        )
+
+    def test_validate_output_is_deterministic(self):
+        m = manifest.parse_file(BROKEN)
+        g = graph.build_graph(m)
+        first = report.render_validate(m, g, AS_OF)
+        second = report.render_validate(m, g, AS_OF)
+        self.assertEqual(first, second)
+
+    def test_validate_reports_missing_wrap(self):
+        m = manifest.parse_file(BROKEN)
+        g = graph.build_graph(m)
+        text = report.render_validate(m, g, AS_OF)
+        self.assertIn("missing-wrap dek-uncovered", text)
+
+
+if __name__ == "__main__":
