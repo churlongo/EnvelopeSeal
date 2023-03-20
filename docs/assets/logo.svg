@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Palette reason: envelope encryption seals a key inside another key. Two core
+  colours, ink navy (#1f2a44) for the "envelope" morpheme and the same navy for
+  structure, with one accent, seal-wax red (#b23a2e), used in exactly one place:
+  the "seal" morpheme, which is the word the reader should notice first. The
