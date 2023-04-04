@@ -8,3 +8,7 @@
   No gradient, no blur, no glow. Flat fills. Contrast of every text fill checked
   against the white plate behind it: navy on white is far above 4.5:1, and the
   seal-wax red on white is above 4.5:1 for normal text.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 96" width="240" height="96" role="img" aria-labelledby="title desc">
+  <title id="title">envelopeseal wordmark</title>
+  <desc id="desc">The name envelopeseal with a small closed-envelope mark whose seal is a single filled square, the only accent colour, matching the seal morpheme in the text.</desc>
