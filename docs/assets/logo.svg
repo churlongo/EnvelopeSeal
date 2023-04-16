@@ -12,3 +12,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 96" width="240" height="96" role="img" aria-labelledby="title desc">
   <title id="title">envelopeseal wordmark</title>
   <desc id="desc">The name envelopeseal with a small closed-envelope mark whose seal is a single filled square, the only accent colour, matching the seal morpheme in the text.</desc>
+  <rect x="0" y="0" width="240" height="96" fill="#ffffff"/>
+
+  <!-- Mark: a closed envelope, its flap two straight strokes meeting at a
+       centre seal. This is a literal diagram of the tool's subject: an
