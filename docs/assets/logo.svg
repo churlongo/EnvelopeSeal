@@ -16,3 +16,6 @@
 
   <!-- Mark: a closed envelope, its flap two straight strokes meeting at a
        centre seal. This is a literal diagram of the tool's subject: an
+       envelope holding a sealed key. Whole-pixel geometry, one box stroke. -->
+  <g fill="none" stroke="#1f2a44" stroke-width="1.5">
+    <rect x="24" y="28" width="56" height="40" rx="3"/>
