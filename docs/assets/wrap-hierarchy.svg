@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Palette reason: same subject as the logo, so the same two core colours. Navy
+  (#1f2a44) draws key encrypting keys and all connectors, a neutral slate grey
+  (#5b6b7a) fills data keys to separate the two roles at a glance, and the one
+  accent, seal-wax red (#b23a2e), marks exactly one thing: the root key, whose
+  blast radius of 4 is the widest and the first place a reader should look.
+  Neutrals (white plate, grey text) do not count toward the budget. Flat fills
