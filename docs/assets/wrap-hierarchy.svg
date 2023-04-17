@@ -6,3 +6,9 @@
   accent, seal-wax red (#b23a2e), marks exactly one thing: the root key, whose
   blast radius of 4 is the widest and the first place a reader should look.
   Neutrals (white plate, grey text) do not count toward the budget. Flat fills
+  only. No gradient, blur, glow, or grid.
+
+  Every number on this diagram is real. It was produced by running
+    PYTHONPATH=src python -m envelopeseal blast samples/healthy.manifest
+  which printed:
+    root-hsm blast 4
