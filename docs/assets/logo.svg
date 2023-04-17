@@ -19,3 +19,7 @@
        envelope holding a sealed key. Whole-pixel geometry, one box stroke. -->
   <g fill="none" stroke="#1f2a44" stroke-width="1.5">
     <rect x="24" y="28" width="56" height="40" rx="3"/>
+    <path d="M24 30 L52 50 L80 30"/>
+  </g>
+  <!-- the seal: the single accent element -->
+  <rect x="47" y="45" width="10" height="10" rx="3" fill="#b23a2e" stroke="none"/>
