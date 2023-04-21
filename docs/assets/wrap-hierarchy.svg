@@ -32,3 +32,10 @@
     </marker>
   </defs>
 
+  <!-- Connectors first so boxes paint over their ends. Stroke width 1. -->
+  <g fill="none" stroke="#1f2a44" stroke-width="1" marker-end="url(#arrow)">
+    <!-- root to two mid keks -->
+    <path d="M280 72 L152 120"/>
+    <path d="M280 72 L408 120"/>
+    <!-- mid-payments to its two data keys -->
+    <path d="M128 168 L72 224"/>
