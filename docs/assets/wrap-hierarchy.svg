@@ -39,3 +39,9 @@
     <path d="M280 72 L408 120"/>
     <!-- mid-payments to its two data keys -->
     <path d="M128 168 L72 224"/>
+    <path d="M128 168 L200 224"/>
+    <!-- mid-telemetry to its two data keys -->
+    <path d="M432 168 L360 224"/>
+    <path d="M432 168 L488 224"/>
+  </g>
+
