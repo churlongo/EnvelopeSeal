@@ -12,3 +12,10 @@
     PYTHONPATH=src python -m envelopeseal blast samples/healthy.manifest
   which printed:
     root-hsm blast 4
+    mid-payments-kek blast 2
+    mid-telemetry-kek blast 2
+  The graph edges are the six wrap records in samples/healthy.manifest.
+
+  Geometry: boxes on an 8px grid, one box stroke width (1.5), one connector
+  stroke width (1), one corner radius (3), 16px padding kept clear of the edge.
+  Text baselines align across each row. Renders on its own white plate.
