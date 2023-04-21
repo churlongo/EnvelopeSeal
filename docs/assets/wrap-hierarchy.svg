@@ -19,3 +19,10 @@
   Geometry: boxes on an 8px grid, one box stroke width (1.5), one connector
   stroke width (1), one corner radius (3), 16px padding kept clear of the edge.
   Text baselines align across each row. Renders on its own white plate.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="560" height="360" role="img" aria-labelledby="title desc">
+  <title id="title">envelopeseal wrap hierarchy for the healthy sample</title>
+  <desc id="desc">A three level directed graph. The root key encrypting key root-hsm, marked in the accent colour, has blast radius 4 and wraps two key encrypting keys. mid-payments-kek, blast radius 2, wraps data keys dek-orders and dek-invoices. mid-telemetry-kek, blast radius 2, wraps data keys dek-events and dek-metrics. Arrows point from a wrapping key down to the key it wraps.</desc>
+
+  <rect x="0" y="0" width="560" height="360" fill="#ffffff"/>
+
