@@ -45,3 +45,10 @@
     <path d="M432 168 L488 224"/>
   </g>
 
+  <!-- Row 1: root, the accent -->
+  <g font-family="'Cascadia Mono','JetBrains Mono',Consolas,'DejaVu Sans Mono',monospace">
+    <rect x="216" y="40" width="128" height="32" rx="3" fill="#ffffff" stroke="#b23a2e" stroke-width="1.5"/>
+    <text x="280" y="56" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2a44">root-hsm</text>
+    <text x="280" y="68" text-anchor="middle" font-size="11" fill="#b23a2e">kek  blast 4</text>
+
+    <!-- Row 2: mid keks -->
