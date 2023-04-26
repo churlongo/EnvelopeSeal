@@ -52,3 +52,10 @@
     <text x="280" y="68" text-anchor="middle" font-size="11" fill="#b23a2e">kek  blast 4</text>
 
     <!-- Row 2: mid keks -->
+    <rect x="64" y="120" width="128" height="32" rx="3" fill="#ffffff" stroke="#1f2a44" stroke-width="1.5"/>
+    <text x="128" y="136" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2a44">mid-payments-kek</text>
+    <text x="128" y="148" text-anchor="middle" font-size="11" fill="#5b6b7a">kek  blast 2</text>
+
+    <rect x="368" y="120" width="128" height="32" rx="3" fill="#ffffff" stroke="#1f2a44" stroke-width="1.5"/>
+    <text x="432" y="136" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2a44">mid-telemetry-kek</text>
+    <text x="432" y="148" text-anchor="middle" font-size="11" fill="#5b6b7a">kek  blast 2</text>
