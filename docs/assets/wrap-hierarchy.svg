@@ -59,3 +59,9 @@
     <rect x="368" y="120" width="128" height="32" rx="3" fill="#ffffff" stroke="#1f2a44" stroke-width="1.5"/>
     <text x="432" y="136" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2a44">mid-telemetry-kek</text>
     <text x="432" y="148" text-anchor="middle" font-size="11" fill="#5b6b7a">kek  blast 2</text>
+
+    <!-- Row 3: data keys, filled slate to mark the data-key role -->
+    <rect x="16" y="224" width="112" height="32" rx="3" fill="#5b6b7a" stroke="#1f2a44" stroke-width="1.5"/>
+    <text x="72" y="244" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">dek-orders</text>
+
+    <rect x="144" y="224" width="112" height="32" rx="3" fill="#5b6b7a" stroke="#1f2a44" stroke-width="1.5"/>
