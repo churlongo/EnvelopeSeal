@@ -24,3 +24,9 @@ validate output shows each finding code once or twice:
 - orphan: `lonely-kek` has no wrap edge in either direction. `dek-uncovered`
   also has no edges, so it is reported both as an orphan and as missing-wrap,
   which is correct: a data key with no wrap edge at all is both uncovered and
+  outside the hierarchy.
+- overdue: `dek-stale` was created 2026-01-01 with a 30 day interval, so it was
+  due 2026-01-31, well before the as-of date. It is the only overdue key.
+- missing-wrap: `dek-uncovered` is a data key that no key encrypting key wraps.
+
+Each value was chosen by hand to make the finding unambiguous. The strength
