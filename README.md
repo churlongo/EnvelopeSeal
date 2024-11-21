@@ -468,3 +468,6 @@ These are directions, not commitments, and carry no dates.
 
 ## License
 
+MIT. See [LICENSE](LICENSE). Copyright 2026 the EnvelopeSeal authors.
+
+<!-- draft note 1163 -->
