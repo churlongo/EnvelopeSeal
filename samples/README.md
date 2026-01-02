@@ -30,3 +30,6 @@ validate output shows each finding code once or twice:
 - missing-wrap: `dek-uncovered` is a data key that no key encrypting key wraps.
 
 Each value was chosen by hand to make the finding unambiguous. The strength
+levels come from the mapping documented in the README strength section.
+
+<!-- draft note 1495 -->
