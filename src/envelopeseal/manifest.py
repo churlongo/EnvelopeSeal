@@ -135,3 +135,26 @@ def parse_text(text: str) -> Manifest:
                 created=_parse_date(created_s, raw_lineno),
                 rotation_days=_parse_int(rot_s, raw_lineno, "rotation_days"),
             )
+            manifest.keys[key_id] = key
+        elif kind == "wrap":
+            if len(parts) != 3:
+                raise ManifestError(
+                    f"line {raw_lineno}: wrap record needs 2 fields "
+                    f"(wrapping_key wrapped_key), got {len(parts) - 1}"
+                )
+            manifest.wraps.append(Wrap(wrapping_key=parts[1], wrapped_key=parts[2]))
+        else:
+            raise ManifestError(
+                f"line {raw_lineno}: unknown record kind {kind!r}, "
+                f"expected 'key' or 'wrap'"
+            )
+    return manifest
+
+
+def parse_file(path: str) -> Manifest:
+    """Read and parse a manifest file (UTF-8, offline, no network)."""
+
+    with open(path, "r", encoding="utf-8") as handle:
+        return parse_text(handle.read())
+
+# draft note 1497
