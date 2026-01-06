@@ -50,3 +50,6 @@ def blast_radii(manifest: Manifest, graph: WrapGraph) -> List[BlastRadius]:
         reached = sorted(reachable_data_keys(graph, kek, deks))
         result.append(BlastRadius(key_id=kek, data_keys=reached))
     result.sort(key=lambda b: (-b.count, b.key_id))
+    return result
+
+# draft note 1498
