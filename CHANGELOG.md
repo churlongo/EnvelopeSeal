@@ -73,3 +73,18 @@ Keep a Changelog, and the project uses semantic versioning.
 
 ### Added
 
+- Blast radius estimation for a compromised key.
+
+## [0.2.0] - 2016-07-19
+
+### Added
+
+- Key hierarchy graph with cycle detection.
+
+## [0.1.0] - 2015-03-10
+
+### Added
+
+- Initial manifest reader and a single hierarchy audit entry point.
+
+<!-- draft note 1500 -->
