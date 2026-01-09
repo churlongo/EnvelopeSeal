@@ -52,4 +52,4 @@ def blast_radii(manifest: Manifest, graph: WrapGraph) -> List[BlastRadius]:
     result.sort(key=lambda b: (-b.count, b.key_id))
     return result
 
-# draft note 1498
+# draft note 1504
