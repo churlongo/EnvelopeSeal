@@ -23,3 +23,12 @@
   </g>
   <!-- the seal: the single accent element -->
   <rect x="47" y="45" width="10" height="10" rx="3" fill="#b23a2e" stroke="none"/>
+
+  <!-- Wordmark: envelope in navy, seal in seal-wax red, split on the morpheme
+       boundary. Monospace keeps the identifier feel of a key id. -->
+  <text x="24" y="86" font-family="'Cascadia Mono','JetBrains Mono',Consolas,'DejaVu Sans Mono',monospace" font-size="20" font-weight="700">
+    <tspan fill="#1f2a44">envelope</tspan><tspan fill="#b23a2e">seal</tspan>
+  </text>
+</svg>
+
+<!-- draft note 1506 -->
