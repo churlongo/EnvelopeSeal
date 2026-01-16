@@ -15,3 +15,10 @@ key dek-events          dek AES-GCM   256 2026-07-15 90
 key dek-metrics         dek AES-GCM   256 2026-07-15 90
 
 wrap root-hsm            mid-payments-kek
+wrap root-hsm            mid-telemetry-kek
+wrap mid-payments-kek    dek-orders
+wrap mid-payments-kek    dek-invoices
+wrap mid-telemetry-kek   dek-events
+wrap mid-telemetry-kek   dek-metrics
+
+<!-- draft note 1513 -->
