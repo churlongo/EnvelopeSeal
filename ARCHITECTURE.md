@@ -160,3 +160,27 @@ which does not help prioritise which key encrypting keys to protect hardest. In
 the healthy sample, `root-hsm` reaches all four data keys (blast 4) while each
 mid key reaches only its own two (blast 2), which is why the root is the first
 key that should move into hardware.
+
+## Why the boundaries fall where they do
+
+The parser is isolated so that every downstream module can trust its input and
+never re-validate. The graph is a standalone structure with its own three
+operations because the graph is the subject of the whole tool; keeping cycle
+detection, reachability, and orphan detection together with the adjacency lists
+keeps the traversal invariants (sorted neighbours, deterministic order) in one
+place. Strength, rotation, and blast are separate because they answer
+independent questions over the same data and share nothing but the `Manifest`
+and `WrapGraph`; a change to the strength table cannot affect rotation. The
+report layer is the only place that knows the output text, so the analysis
+modules can be reused or re-rendered without touching their logic. The CLI is
+the only place that performs argument parsing, chooses exit codes, and writes to
+streams, so the rest of the package is pure and directly testable, which is what
+the unittest suite under `tests/` relies on.
+
+## Related documents
+
+- `README.md` — user-facing overview, install, and command reference.
+- `docs/FORMAT.md` — the input manifest format and the output report format as a
+  precise field-by-field contract.
+
+<!-- draft note 1514 -->
