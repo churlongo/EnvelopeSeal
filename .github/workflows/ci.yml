@@ -21,4 +21,4 @@ jobs:
           PYTHONPATH: src
         run: python -m envelopeseal version
 
-# draft note 1505
+# draft note 1517
