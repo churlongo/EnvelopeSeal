@@ -65,3 +65,19 @@
     <text x="72" y="244" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">dek-orders</text>
 
     <rect x="144" y="224" width="112" height="32" rx="3" fill="#5b6b7a" stroke="#1f2a44" stroke-width="1.5"/>
+    <text x="200" y="244" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">dek-invoices</text>
+
+    <rect x="304" y="224" width="112" height="32" rx="3" fill="#5b6b7a" stroke="#1f2a44" stroke-width="1.5"/>
+    <text x="360" y="244" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">dek-events</text>
+
+    <rect x="432" y="224" width="112" height="32" rx="3" fill="#5b6b7a" stroke="#1f2a44" stroke-width="1.5"/>
+    <text x="488" y="244" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">dek-metrics</text>
+
+    <!-- Legend -->
+    <text x="16" y="304" font-size="11" fill="#1f2a44">roles: box outline is a key encrypting key, filled box is a data key</text>
+    <text x="16" y="322" font-size="11" fill="#1f2a44">arrow points from a wrapping key to the key it wraps</text>
+    <text x="16" y="340" font-size="11" fill="#b23a2e">accent marks the root, whose blast radius of 4 is the widest</text>
+  </g>
+</svg>
+
+<!-- draft note 1519 -->
