@@ -19,3 +19,10 @@ key dek-uncovered  dek AES-GCM   256 2026-07-01 90
 
 # inversion: a level 112 key wrapping a level 256 key
 wrap weak-wrapper  dek-strong
+
+# healthy cover for the stale key so its only fault is being overdue
+wrap root-hsm      dek-stale
+
+# cycle between two key encrypting keys
+wrap loop-a        loop-b
+wrap loop-b        loop-a
