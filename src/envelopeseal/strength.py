@@ -60,3 +60,18 @@ def security_level(key: Key) -> int:
                 f"is not in the mapped set {sorted(_MODULUS_LEVELS)}"
             )
         return level
+    raise StrengthError(
+        f"key {key.key_id!r}: unknown algorithm {key.algorithm!r}"
+    )
+
+
+def is_inversion(wrapping: Key, wrapped: Key) -> bool:
+    """True when wrapping is weaker than the key it protects."""
+
+    return security_level(wrapping) < security_level(wrapped)
+
+
+def describe(key: Key) -> str:
+    """A short human string for a key's strength, for reports."""
+
+    return f"{key.algorithm} {key.bits} (level {security_level(key)})"
