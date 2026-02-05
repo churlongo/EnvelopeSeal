@@ -20,5 +20,3 @@ wrap mid-payments-kek    dek-orders
 wrap mid-payments-kek    dek-invoices
 wrap mid-telemetry-kek   dek-events
 wrap mid-telemetry-kek   dek-metrics
-
-<!-- draft note 1513 -->
