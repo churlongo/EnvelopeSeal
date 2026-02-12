@@ -31,5 +31,3 @@ validate output shows each finding code once or twice:
 
 Each value was chosen by hand to make the finding unambiguous. The strength
 levels come from the mapping documented in the README strength section.
-
-<!-- draft note 1503 -->
