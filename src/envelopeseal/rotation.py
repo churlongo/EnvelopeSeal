@@ -73,3 +73,4 @@ def statuses(manifest: Manifest, as_of: datetime.date) -> "list[RotationStatus]"
 def overdue(manifest: Manifest, as_of: datetime.date) -> "list[RotationStatus]":
     """Only the overdue keys, sorted by key id."""
 
+    return [s for s in statuses(manifest, as_of) if s.overdue]
