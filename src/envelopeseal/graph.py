@@ -117,3 +117,24 @@ def reachable_data_keys(graph: WrapGraph, start: str, data_keys: Set[str]) -> Se
             seen.add(nxt)
             if nxt in data_keys:
                 result.add(nxt)
+            visit(nxt)
+
+    visit(start)
+    if start in data_keys:
+        result.add(start)
+    return result
+
+
+def orphans(graph: WrapGraph) -> List[str]:
+    """Keys with no wrap edge in either direction, sorted by id.
+
+    An orphan protects nothing and is protected by nothing, so it sits outside
+    the hierarchy entirely.
+    """
+
+    result = [
+        key_id
+        for key_id in graph.key_ids
+        if not graph.out_edges.get(key_id) and not graph.in_edges.get(key_id)
+    ]
+    return sorted(result)
