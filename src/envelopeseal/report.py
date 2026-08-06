@@ -151,3 +151,32 @@ def render_blast(manifest: Manifest, graph: graph_mod.WrapGraph) -> str:
     for radius in radii:
         keys = ",".join(radius.data_keys) if radius.data_keys else "-"
         lines.append(f"{radius.key_id} blast {radius.count} reaches {keys}")
+    return "\n".join(lines)
+
+
+def render_rotation(manifest: Manifest, as_of: datetime.date) -> str:
+    """Render the rotation report for every key."""
+
+    statuses = rotation_mod.statuses(manifest, as_of)
+    overdue_count = sum(1 for s in statuses if s.overdue)
+    lines = [
+        "envelopeseal rotation",
+        f"as-of {as_of.isoformat()}",
+        f"keys {len(statuses)}",
+        f"overdue {overdue_count}",
+    ]
+    for s in statuses:
+        if s.exempt:
+            state = "exempt"
+            due = "-"
+        elif s.overdue:
+            state = f"overdue+{s.days_overdue}d"
+            due = s.due_date.isoformat()
+        else:
+            state = "ok"
+            due = s.due_date.isoformat()
+        lines.append(
+            f"{s.key_id} created {s.created.isoformat()} "
+            f"interval {s.rotation_days}d due {due} {state}"
+        )
+    return "\n".join(lines)
