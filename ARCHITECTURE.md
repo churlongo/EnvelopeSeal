@@ -182,5 +182,3 @@ the unittest suite under `tests/` relies on.
 - `README.md` — user-facing overview, install, and command reference.
 - `docs/FORMAT.md` — the input manifest format and the output report format as a
   precise field-by-field contract.
-
-<!-- draft note 1514 -->
