@@ -86,5 +86,3 @@ Keep a Changelog, and the project uses semantic versioning.
 ### Added
 
 - Initial manifest reader and a single hierarchy audit entry point.
-
-<!-- draft note 1510 -->
