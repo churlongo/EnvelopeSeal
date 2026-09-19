@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Palette reason: a sealed key hierarchy. Ink navy lifted to #c7d4ee carries the
+  structural text on #0d1117. The single accent, seal-wax red lifted to #e5534b,
+  appears once on the sealed data key, the thing the reader looks at first.
+  Green is used only as the healthy state on the root key. Contrast on #0d1117:
+  ink 13.2:1, navy 12.8:1, red 5.2:1, green 8.1:1, muted 6.3:1.
+  Grid: every edge and baseline on a multiple of 4. No glow, no blur, no
+  gradients as decoration. Motion: none.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 360" role="img"
+     aria-labelledby="bannerTitle bannerDesc" width="1400" height="360">
+  <title id="bannerTitle">EnvelopeSeal banner</title>
+  <desc id="bannerDesc">EnvelopeSeal, an offline envelope encryption hierarchy
+    auditor. A key graph card shows a root KEK linked to an intermediate KEK and
+    a sealed data key, with a rotation order line.</desc>
+
+  <rect x="0" y="0" width="1400" height="360" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+
+  <text x="64" y="120" font-family="&quot;Cascadia Mono&quot;, Consolas, monospace" font-size="60" font-weight="700"><tspan fill="#c7d4ee">envelope</tspan><tspan fill="#e5534b">seal</tspan></text>
+
+  <text x="64" y="168" font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif" font-size="26" fill="#e6edf3">Offline envelope encryption hierarchy auditor</text>
+  <text x="64" y="200" font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif" font-size="17" fill="#8b949e">Manifest. Key graph. Blast radius. Rotation order.</text>
+
+  <rect x="64" y="248" width="104" height="36" rx="6" fill="none" stroke="#30363d" stroke-width="1.5"/>
+  <text x="116" y="271" text-anchor="middle" font-family="&quot;Cascadia Mono&quot;, Consolas, monospace" font-size="15" fill="#8b949e">v1.0.1</text>
+  <rect x="184" y="248" width="80" height="36" rx="6" fill="none" stroke="#30363d" stroke-width="1.5"/>
+  <text x="224" y="271" text-anchor="middle" font-family="&quot;Cascadia Mono&quot;, Consolas, monospace" font-size="15" fill="#8b949e">MIT</text>
+  <rect x="280" y="248" width="168" height="36" rx="6" fill="none" stroke="#30363d" stroke-width="1.5"/>
+  <text x="364" y="271" text-anchor="middle" font-family="&quot;Cascadia Mono&quot;, Consolas, monospace" font-size="15" fill="#8b949e">Python 3.11+</text>
+
+  <rect x="800" y="56" width="536" height="248" rx="12" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="832" y="96" font-family="&quot;Cascadia Mono&quot;, Consolas, monospace" font-size="16" fill="#8b949e">key hierarchy</text>
+  <line x1="832" y1="112" x2="1304" y2="112" stroke="#30363d" stroke-width="1"/>
+
+  <rect x="832" y="140" width="120" height="40" rx="6" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="892" y="165" text-anchor="middle" font-family="&quot;Cascadia Mono&quot;, Consolas, monospace" font-size="15" fill="#e6edf3">root kek</text>
+
+  <line x1="952" y1="160" x2="992" y2="160" stroke="#c7d4ee" stroke-width="1.5"/>
+  <circle cx="1000" cy="160" r="8" fill="none" stroke="#c7d4ee" stroke-width="1.5"/>
+
+  <rect x="1008" y="140" width="132" height="40" rx="6" fill="none" stroke="#c7d4ee" stroke-width="1.5"/>
+  <text x="1074" y="165" text-anchor="middle" font-family="&quot;Cascadia Mono&quot;, Consolas, monospace" font-size="15" fill="#e6edf3">kek region a</text>
+
+  <line x1="1140" y1="160" x2="1180" y2="160" stroke="#e5534b" stroke-width="1.5"/>
+  <circle cx="1188" cy="160" r="8" fill="none" stroke="#e5534b" stroke-width="1.5"/>
+
+  <rect x="1196" y="140" width="108" height="40" rx="6" fill="none" stroke="#e5534b" stroke-width="1.5"/>
+  <text x="1250" y="165" text-anchor="middle" font-family="&quot;Cascadia Mono&quot;, Consolas, monospace" font-size="15" fill="#e6edf3">sealed dek</text>
+
+  <text x="832" y="232" font-family="&quot;Cascadia Mono&quot;, Consolas, monospace" font-size="16" fill="#e6edf3">depth   root:1  region:1  dek:3</text>
+  <text x="832" y="268" font-family="&quot;Cascadia Mono&quot;, Consolas, monospace" font-size="16" fill="#e6edf3">rotation order  root, region a, dek</text>
+  <text x="832" y="296" font-family="&quot;Cascadia Mono&quot;, Consolas, monospace" font-size="16" fill="#8b949e">blast radius  6 keys reachable</text>
+</svg>

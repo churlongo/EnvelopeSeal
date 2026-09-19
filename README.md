@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/assets/logo.svg" alt="EnvelopeSeal wordmark: a closed envelope whose seal is a single filled square, next to the name EnvelopeSeal" width="240" />
+<img src="docs/assets/banner.svg" width="100%" alt="EnvelopeSeal banner: offline envelope encryption hierarchy auditor, with a key graph showing a root KEK, a region KEK, and a sealed data key." />
 
 # EnvelopeSeal
 
