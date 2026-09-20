@@ -8,6 +8,7 @@ Keep a Changelog, and the project uses semantic versioning.
 ### Changed
 
 - Rotation planner wording is under review for the next patch.
+- A per depth summary line for the audit output is being sketched.
 
 ## [1.0.1] - 2026-07-01
 
